@@ -117,6 +117,33 @@ model TicketComment {
   createdAt  DateTime @default(now())
 }
 
+model TrainingPost {
+  id        String   @id @default(uuid())
+  title     String
+  content   String   @db.Text
+  category  String
+  url       String?
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model DevBenefitRequest {
+  id          String   @id @default(uuid())
+  userId      String
+  userName    String?
+  userEmail   String
+  title       String
+  description String   @db.Text
+  amount      Float
+  category    String
+  url         String?
+  status      String   @default("pending") // pending, approved, denied
+  adminNotes  String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
 model Document {
   id          String   @id @default(uuid())
   title       String

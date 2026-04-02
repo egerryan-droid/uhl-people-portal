@@ -16,6 +16,8 @@ import {
   Megaphone,
   FolderOpen,
   ClipboardList,
+  GraduationCap,
+  DollarSign,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -28,6 +30,7 @@ const mainNav = [
   { href: "/tools", label: "Quick Links", icon: ExternalLink },
   { href: "/documents", label: "Documents", icon: FileText },
   { href: "/company", label: "Company", icon: Building2 },
+  { href: "/growth", label: "Growth & Training", icon: GraduationCap },
   { href: "/tickets", label: "HR Tickets", icon: Ticket },
   { href: "/feedback", label: "Feedback", icon: MessageSquare },
 ]
@@ -41,6 +44,7 @@ const adminNav = [
   { href: "/admin/announcements", label: "Announcements", icon: Megaphone },
   { href: "/admin/documents", label: "Manage Docs", icon: FolderOpen },
   { href: "/admin/tickets", label: "Manage Tickets", icon: Ticket },
+  { href: "/admin/growth", label: "Dev Requests", icon: DollarSign },
   { href: "/admin/feedback", label: "View Feedback", icon: MessageSquare },
 ]
 
