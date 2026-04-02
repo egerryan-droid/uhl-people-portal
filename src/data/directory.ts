@@ -161,7 +161,7 @@ export const teamDirectory: TeamMember[] = [
     title: "Project Manager",
     department: "Operations & Support",
     type: "Contractor",
-    reportsTo: "Ryan Eger",
+    reportsTo: "Carley Lahiff & Marcus Henning",
   },
   {
     name: "Elle Hucal",
