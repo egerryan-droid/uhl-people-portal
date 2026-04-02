@@ -57,7 +57,7 @@ export const teamDirectory: TeamMember[] = [
     title: "VP of Sales",
     department: "Sales",
     type: "W2",
-    reportsTo: "Eric Wirks",
+    reportsTo: "Ryan Eger",
   },
   {
     name: "Hannah Underwood",
@@ -133,7 +133,7 @@ export const teamDirectory: TeamMember[] = [
     title: "Customer Success Manager",
     department: "Customer Success",
     type: "W2",
-    reportsTo: "Ryan Eger",
+    reportsTo: "Carley Lahiff",
   },
   {
     name: "Darryl Darius",
@@ -151,7 +151,7 @@ export const teamDirectory: TeamMember[] = [
     title: "Jr. Marketing Analyst",
     department: "Marketing",
     type: "W2",
-    reportsTo: "Ryan Eger",
+    reportsTo: "Carley Lahiff",
   },
 
   // Operations & Support
