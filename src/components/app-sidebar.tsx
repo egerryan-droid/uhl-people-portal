@@ -19,6 +19,7 @@ import {
   GraduationCap,
   DollarSign,
   CalendarDays,
+  Users,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -31,6 +32,7 @@ const mainNav = [
   { href: "/tools", label: "Quick Links", icon: ExternalLink },
   { href: "/documents", label: "Documents", icon: FileText },
   { href: "/company", label: "Company", icon: Building2 },
+  { href: "/directory", label: "Team Directory", icon: Users },
   { href: "/pto", label: "Request PTO", icon: CalendarDays },
   { href: "/growth", label: "Growth & Training", icon: GraduationCap },
   { href: "/tickets", label: "HR Tickets", icon: Ticket },
