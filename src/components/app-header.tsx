@@ -1,7 +1,6 @@
 "use client"
 
 import { Menu, LogOut } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   DropdownMenu,
@@ -37,11 +36,9 @@ export function AppHeader({ user }: AppHeaderProps) {
   return (
     <header className="sticky top-0 z-40 flex h-14 items-center gap-4 border-b bg-background px-4 lg:px-6">
       <Sheet>
-        <SheetTrigger >
-          <Button variant="ghost" size="icon" className="lg:hidden">
-            <Menu className="h-5 w-5" />
-            <span className="sr-only">Toggle menu</span>
-          </Button>
+        <SheetTrigger className="inline-flex h-9 w-9 items-center justify-center rounded-md hover:bg-accent hover:text-accent-foreground lg:hidden">
+          <Menu className="h-5 w-5" />
+          <span className="sr-only">Toggle menu</span>
         </SheetTrigger>
         <SheetContent side="left" className="w-64 p-0">
           <AppSidebar userRole={user?.role} />
@@ -53,13 +50,11 @@ export function AppHeader({ user }: AppHeaderProps) {
       <ThemeToggle />
 
       <DropdownMenu>
-        <DropdownMenuTrigger >
-          <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-            <Avatar className="h-8 w-8">
-              <AvatarImage src={user?.image ?? undefined} alt={user?.name ?? "User"} />
-              <AvatarFallback>{getInitials(user?.name)}</AvatarFallback>
-            </Avatar>
-          </Button>
+        <DropdownMenuTrigger className="relative inline-flex h-8 w-8 items-center justify-center rounded-full hover:bg-accent">
+          <Avatar className="h-8 w-8">
+            <AvatarImage src={user?.image ?? undefined} alt={user?.name ?? "User"} />
+            <AvatarFallback>{getInitials(user?.name)}</AvatarFallback>
+          </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-56">
           <div className="flex items-center gap-2 p-2">

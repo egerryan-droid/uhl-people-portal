@@ -161,10 +161,8 @@ function ReportDetailDialog({
 
   return (
     <Dialog>
-      <DialogTrigger>
-        <Button variant="outline" size="sm">
-          View
-        </Button>
+      <DialogTrigger className="inline-flex h-8 items-center justify-center rounded-md border border-input bg-background px-3 text-sm font-medium shadow-sm hover:bg-accent hover:text-accent-foreground">
+        View
       </DialogTrigger>
       <DialogContent className="max-w-lg">
         <DialogHeader>

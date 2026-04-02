@@ -7,7 +7,6 @@ import { HandbookSearchBar } from "@/components/handbook/search-bar"
 import { HandbookSidebarNav } from "@/components/handbook/sidebar-nav"
 import { SectionContent } from "@/components/handbook/section-content"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Button } from "@/components/ui/button"
 import {
   Select,
   SelectTrigger,
@@ -77,10 +76,8 @@ export default function HandbookPage() {
       <div className="flex flex-1 flex-col overflow-hidden">
         <div className="flex items-center gap-2 border-b p-3 lg:hidden">
           <Sheet>
-            <SheetTrigger>
-              <Button variant="outline" size="icon" className="shrink-0">
-                <List className="h-4 w-4" />
-              </Button>
+            <SheetTrigger className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-input bg-background text-sm font-medium shadow-sm hover:bg-accent hover:text-accent-foreground">
+              <List className="h-4 w-4" />
             </SheetTrigger>
             <SheetContent side="left" className="w-72 p-0">
               <div className="p-3">
