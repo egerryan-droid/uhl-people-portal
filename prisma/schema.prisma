@@ -1,0 +1,130 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// NextAuth.js required models
+model Account {
+  id                String  @id @default(uuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  role          String    @default("employee")
+  accounts      Account[]
+  sessions      Session[]
+  tickets       Ticket[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// Application models
+
+model AnonymousReport {
+  id          String   @id @default(uuid())
+  reportDate  DateTime @db.Date
+  category    String
+  description String   @db.Text
+  status      String   @default("new")
+  adminNotes  String?  @db.Text
+  referenceId String   @unique
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Feedback {
+  id        String   @id @default(uuid())
+  userEmail String
+  userName  String?
+  category  String
+  message   String   @db.Text
+  status    String   @default("new")
+  createdAt DateTime @default(now())
+}
+
+model Announcement {
+  id        String   @id @default(uuid())
+  title     String
+  content   String   @db.Text
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Ticket {
+  id             String          @id @default(uuid())
+  title          String
+  description    String          @db.Text
+  category       String
+  type           String          @default("general") // general, formal
+  priority       String          @default("normal")  // low, normal, high, urgent
+  status         String          @default("open")    // open, in-progress, waiting-on-employee, resolved, closed
+  userId         String
+  user           User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  assignedTo     String?
+  slackMessageTs String?
+  comments       TicketComment[]
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+}
+
+model TicketComment {
+  id         String   @id @default(uuid())
+  ticketId   String
+  ticket     Ticket   @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  authorId   String
+  authorName String?
+  authorRole String   // employee, admin
+  message    String   @db.Text
+  internal   Boolean  @default(false) // admin-only notes
+  createdAt  DateTime @default(now())
+}
+
+model Document {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  category    String
+  fileUrl     String
+  fileName    String
+  fileSize    Int?
+  visibility  String   @default("all")
+  uploadedAt  DateTime @default(now())
+}
