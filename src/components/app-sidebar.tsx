@@ -20,6 +20,9 @@ import {
   DollarSign,
   CalendarDays,
   Users,
+  Calendar,
+  CheckSquare,
+  UserCircle,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -27,6 +30,8 @@ import { Separator } from "@/components/ui/separator"
 
 const mainNav = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/onboarding", label: "Onboarding", icon: CheckSquare },
+  { href: "/profile", label: "My Profile", icon: UserCircle },
   { href: "/handbook", label: "Handbook", icon: BookOpen },
   { href: "/benefits", label: "Benefits", icon: Heart },
   { href: "/tools", label: "Quick Links", icon: ExternalLink },
@@ -51,6 +56,8 @@ const adminNav = [
   { href: "/admin/pto", label: "PTO Requests", icon: CalendarDays },
   { href: "/admin/growth", label: "Dev Requests", icon: DollarSign },
   { href: "/admin/feedback", label: "View Feedback", icon: MessageSquare },
+  { href: "/admin/holidays", label: "Holidays", icon: Calendar },
+  { href: "/admin/onboarding", label: "Onboarding Tasks", icon: CheckSquare },
 ]
 
 function NavItem({

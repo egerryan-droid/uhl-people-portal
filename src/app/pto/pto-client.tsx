@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import {
   Card,
   CardContent,
@@ -122,6 +123,16 @@ export function PtoClient({ myRequests }: { myRequests: PtoRequest[] }) {
           Submit a PTO request for 2 or more business days. For single-day
           absences, notify your manager directly.
         </p>
+      </div>
+
+      {/* Calendar Link */}
+      <div className="flex justify-end">
+        <Link href="/pto/calendar">
+          <Button variant="outline" size="sm">
+            <Calendar className="mr-1 h-4 w-4" />
+            View PTO Calendar
+          </Button>
+        </Link>
       </div>
 
       {/* Policy Quick Reference */}

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { auth } from "@/auth"
 import { prisma } from "@/lib/db"
+import { notifyBenefitRequestUpdate } from "@/lib/slack"
 
 async function requireAdmin() {
   const session = await auth()
@@ -33,13 +34,21 @@ export async function PATCH(request: Request) {
       return NextResponse.json({ error: "Request ID required" }, { status: 400 })
     }
 
-    await prisma.devBenefitRequest.update({
+    const benefitRequest = await prisma.devBenefitRequest.update({
       where: { id },
       data: {
         ...(status && { status }),
         ...(adminNotes !== undefined && { adminNotes }),
       },
     })
+
+    if (status === "approved" || status === "denied") {
+      notifyBenefitRequestUpdate(
+        benefitRequest.title,
+        status,
+        benefitRequest.userName ?? benefitRequest.userEmail
+      ).catch(() => {})
+    }
 
     return NextResponse.json({ success: true })
   } catch (error) {

@@ -104,3 +104,59 @@ export async function postTicketToSlack(
     return null
   }
 }
+
+async function postSimpleSlackMessage(text: string): Promise<void> {
+  const token = process.env.SLACK_BOT_TOKEN
+  const channel = process.env.SLACK_CHANNEL_ID
+
+  if (!token || !channel) {
+    console.log("Slack not configured — skipping notification")
+    return
+  }
+
+  try {
+    await fetch("https://slack.com/api/chat.postMessage", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ channel, text }),
+    })
+  } catch (error) {
+    console.error("Failed to post to Slack:", error)
+  }
+}
+
+export async function notifyPtoApproval(
+  employeeName: string,
+  startDate: string,
+  endDate: string,
+  status: string
+): Promise<void> {
+  const emoji = status === "approved" ? "✅" : "❌"
+  await postSimpleSlackMessage(
+    `${emoji} ${employeeName} PTO request ${status} for ${startDate} — ${endDate}`
+  )
+}
+
+export async function notifyTicketUpdate(
+  ticketTitle: string,
+  status: string,
+  employeeName: string
+): Promise<void> {
+  await postSimpleSlackMessage(
+    `🎫 Ticket "${ticketTitle}" by ${employeeName} updated to ${status}`
+  )
+}
+
+export async function notifyBenefitRequestUpdate(
+  title: string,
+  status: string,
+  employeeName: string
+): Promise<void> {
+  const emoji = status === "approved" ? "✅" : "❌"
+  await postSimpleSlackMessage(
+    `${emoji} Dev benefit "${title}" by ${employeeName} ${status}`
+  )
+}

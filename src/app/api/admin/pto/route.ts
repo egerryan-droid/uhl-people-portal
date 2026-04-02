@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { auth } from "@/auth"
 import { prisma } from "@/lib/db"
+import { notifyPtoApproval } from "@/lib/slack"
 
 async function requireAdmin() {
   const session = await auth()
@@ -34,7 +35,7 @@ export async function PATCH(request: Request) {
       return NextResponse.json({ error: "Request ID required" }, { status: 400 })
     }
 
-    await prisma.ptoRequest.update({
+    const ptoRequest = await prisma.ptoRequest.update({
       where: { id },
       data: {
         ...(status && { status }),
@@ -42,6 +43,15 @@ export async function PATCH(request: Request) {
         reviewedBy: session.user.name ?? session.user.email,
       },
     })
+
+    if (status === "approved" || status === "denied") {
+      notifyPtoApproval(
+        ptoRequest.userName ?? ptoRequest.userEmail,
+        ptoRequest.startDate.toLocaleDateString(),
+        ptoRequest.endDate.toLocaleDateString(),
+        status
+      ).catch(() => {})
+    }
 
     return NextResponse.json({ success: true })
   } catch (error) {

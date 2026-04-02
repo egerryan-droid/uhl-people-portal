@@ -201,7 +201,11 @@ export default function AdminDocumentsPage() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  onClick={() => deleteDoc(doc.id)}
+                  onClick={() => {
+                    if (window.confirm("Are you sure you want to delete this document?")) {
+                      deleteDoc(doc.id)
+                    }
+                  }}
                 >
                   <Trash2 className="h-4 w-4 text-destructive" />
                 </Button>

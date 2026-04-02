@@ -171,3 +171,46 @@ model Document {
   visibility  String   @default("all")
   uploadedAt  DateTime @default(now())
 }
+
+model Holiday {
+  id     String  @id @default(uuid())
+  name   String
+  date   String  // "January 1", "Last Monday in May", etc.
+  year   Int     @default(2026)
+  active Boolean @default(true)
+}
+
+model OnboardingTask {
+  id          String  @id @default(uuid())
+  title       String
+  description String?
+  category    String  // "before-start", "first-day", "first-week", "first-month"
+  order       Int     @default(0)
+  active      Boolean @default(true)
+}
+
+model OnboardingProgress {
+  id          String    @id @default(uuid())
+  userId      String
+  userEmail   String
+  taskId      String
+  completed   Boolean   @default(false)
+  completedAt DateTime?
+
+  @@unique([userId, taskId])
+}
+
+model EmployeeProfile {
+  id                String   @id @default(uuid())
+  userId            String   @unique
+  state             String?
+  phone             String?
+  emergencyName     String?
+  emergencyPhone    String?
+  emergencyRelation String?
+  startDate         String?
+  birthday          String?  // month/day only for privacy
+  pronouns          String?
+  timezone          String?
+  updatedAt         DateTime @updatedAt
+}

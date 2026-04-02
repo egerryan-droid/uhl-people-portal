@@ -8,8 +8,9 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { Calendar, User, Clock, Plane } from "lucide-react"
+import { prisma } from "@/lib/db"
 
-const holidays = [
+const defaultHolidays = [
   { name: "New Year's Day", date: "January 1" },
   { name: "Memorial Day", date: "Last Monday in May" },
   { name: "Independence Day", date: "July 4" },
@@ -41,7 +42,20 @@ const values = [
   },
 ]
 
-export default function CompanyPage() {
+export default async function CompanyPage() {
+  let holidays = defaultHolidays
+  try {
+    const dbHolidays = await prisma.holiday.findMany({
+      where: { active: true },
+      orderBy: { name: "asc" },
+    })
+    if (dbHolidays.length > 0) {
+      holidays = dbHolidays.map((h) => ({ name: h.name, date: h.date }))
+    }
+  } catch {
+    // Fall back to hardcoded list
+  }
+
   return (
     <div className="mx-auto max-w-4xl space-y-8">
       <div>

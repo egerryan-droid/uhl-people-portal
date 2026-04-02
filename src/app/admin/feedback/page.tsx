@@ -1,9 +1,12 @@
-import { prisma } from "@/lib/db"
+"use client"
+
+import { useState, useEffect } from "react"
 import {
   Card,
   CardContent,
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import {
   Table,
   TableBody,
@@ -12,24 +15,52 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { CheckCircle2 } from "lucide-react"
+import { toast } from "sonner"
 
-export default async function AdminFeedbackPage() {
-  let feedback: {
-    id: string
-    userEmail: string
-    userName: string | null
-    category: string
-    message: string
-    status: string
-    createdAt: Date
-  }[] = []
+interface FeedbackItem {
+  id: string
+  userEmail: string
+  userName: string | null
+  category: string
+  message: string
+  status: string
+  createdAt: string
+}
 
-  try {
-    feedback = await prisma.feedback.findMany({
-      orderBy: { createdAt: "desc" },
-    })
-  } catch {
-    // DB might not be connected
+const statusVariant: Record<string, "default" | "secondary" | "outline"> = {
+  new: "secondary",
+  reviewed: "default",
+  responded: "outline",
+}
+
+export default function AdminFeedbackPage() {
+  const [feedback, setFeedback] = useState<FeedbackItem[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch("/api/admin/feedback")
+      .then((r) => r.json())
+      .then((data) => setFeedback(data.feedback ?? []))
+      .catch(() => toast.error("Failed to load feedback"))
+      .finally(() => setLoading(false))
+  }, [])
+
+  const markAsReviewed = async (id: string) => {
+    try {
+      const res = await fetch("/api/admin/feedback", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id, status: "reviewed" }),
+      })
+      if (!res.ok) throw new Error()
+      setFeedback((prev) =>
+        prev.map((f) => (f.id === id ? { ...f, status: "reviewed" } : f))
+      )
+      toast.success("Marked as reviewed")
+    } catch {
+      toast.error("Failed to update")
+    }
   }
 
   return (
@@ -43,7 +74,9 @@ export default async function AdminFeedbackPage() {
         </p>
       </div>
 
-      {feedback.length === 0 ? (
+      {loading ? (
+        <p className="text-sm text-muted-foreground">Loading...</p>
+      ) : feedback.length === 0 ? (
         <Card>
           <CardContent className="py-8 text-center text-muted-foreground">
             No feedback submitted yet.
@@ -57,7 +90,9 @@ export default async function AdminFeedbackPage() {
                 <TableHead>Date</TableHead>
                 <TableHead>From</TableHead>
                 <TableHead>Category</TableHead>
+                <TableHead>Status</TableHead>
                 <TableHead>Message</TableHead>
+                <TableHead className="w-[100px]">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -72,8 +107,25 @@ export default async function AdminFeedbackPage() {
                   <TableCell>
                     <Badge variant="secondary">{f.category}</Badge>
                   </TableCell>
+                  <TableCell>
+                    <Badge variant={statusVariant[f.status] ?? "secondary"}>
+                      {f.status}
+                    </Badge>
+                  </TableCell>
                   <TableCell className="text-sm max-w-md">
                     {f.message}
+                  </TableCell>
+                  <TableCell>
+                    {f.status === "new" && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => markAsReviewed(f.id)}
+                      >
+                        <CheckCircle2 className="mr-1 h-4 w-4" />
+                        Reviewed
+                      </Button>
+                    )}
                   </TableCell>
                 </TableRow>
               ))}

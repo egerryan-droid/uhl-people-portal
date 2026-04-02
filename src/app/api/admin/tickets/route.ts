@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { auth } from "@/auth"
 import { prisma } from "@/lib/db"
+import { notifyTicketUpdate } from "@/lib/slack"
 
 async function requireAdmin() {
   const session = await auth()
@@ -58,14 +59,23 @@ export async function PATCH(request: Request) {
       )
     }
 
-    await prisma.ticket.update({
+    const ticket = await prisma.ticket.update({
       where: { id },
+      include: { user: { select: { name: true, email: true } } },
       data: {
         ...(status && { status }),
         ...(priority && { priority }),
         ...(assignedTo !== undefined && { assignedTo }),
       },
     })
+
+    if (status) {
+      notifyTicketUpdate(
+        ticket.title,
+        status,
+        ticket.user.name ?? ticket.user.email ?? "Employee"
+      ).catch(() => {})
+    }
 
     return NextResponse.json({ success: true })
   } catch (error) {

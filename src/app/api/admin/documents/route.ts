@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { auth } from "@/auth"
 import { prisma } from "@/lib/db"
+import { put, del } from "@vercel/blob"
 
 async function requireAdmin() {
   const session = await auth()
@@ -37,9 +38,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "File and title required" }, { status: 400 })
     }
 
-    // For now, store as a data URL or placeholder
-    // In production, use Vercel Blob: const blob = await put(file.name, file, { access: 'public' })
-    const fileUrl = `/api/admin/documents/placeholder/${encodeURIComponent(file.name)}`
+    const blob = await put(file.name, file, { access: "public" })
+    const fileUrl = blob.url
 
     const document = await prisma.document.create({
       data: {
@@ -66,6 +66,17 @@ export async function DELETE(request: Request) {
   }
 
   const body = await request.json()
+
+  // Clean up the blob before deleting from DB
+  const doc = await prisma.document.findUnique({ where: { id: body.id } })
+  if (doc?.fileUrl) {
+    try {
+      await del(doc.fileUrl)
+    } catch (e) {
+      console.error("Failed to delete blob:", e)
+    }
+  }
+
   await prisma.document.delete({ where: { id: body.id } })
 
   return NextResponse.json({ success: true })
