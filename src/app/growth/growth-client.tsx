@@ -117,7 +117,33 @@ export function GrowthClient({
         </TabsList>
 
         <TabsContent value="resources" className="space-y-6 mt-4">
-          {/* YouTube Videos */}
+          {/* UHL Training Playlist */}
+          <div className="space-y-3">
+            <div className="flex items-center gap-2">
+              <Video className="h-4 w-4 text-red-500" />
+              <h2 className="text-sm font-medium uppercase text-muted-foreground">
+                UHL Training Playlist
+              </h2>
+            </div>
+            <Card>
+              <CardContent className="py-4">
+                <div className="aspect-video w-full overflow-hidden rounded-lg">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/videoseries?list=PLrUnBGI75Kyu4b7xF7Vf2KdIs8VPBaaOd"
+                    title="UHL Training Playlist"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    className="border-0"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Recommended Videos */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <Video className="h-4 w-4 text-red-500" />

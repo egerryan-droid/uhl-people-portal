@@ -117,6 +117,22 @@ model TicketComment {
   createdAt  DateTime @default(now())
 }
 
+model PtoRequest {
+  id          String   @id @default(uuid())
+  userId      String
+  userName    String?
+  userEmail   String
+  startDate   DateTime @db.Date
+  endDate     DateTime @db.Date
+  totalDays   Int
+  reason      String?  @db.Text
+  status      String   @default("pending") // pending, approved, denied
+  adminNotes  String?  @db.Text
+  reviewedBy  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
 model TrainingPost {
   id        String   @id @default(uuid())
   title     String
