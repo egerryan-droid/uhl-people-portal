@@ -190,9 +190,39 @@ export function GrowthClient({
             <div className="flex items-center gap-2">
               <BookOpen className="h-4 w-4 text-amber-600" />
               <h2 className="text-sm font-medium uppercase text-muted-foreground">
-                Recommended Reading
+                UHL Book Shelf
               </h2>
             </div>
+            <a
+              href="https://www.amazon.com/ab/shelf/26e3f082-ef2f-4a3e-87cc-6649ecc8cea5"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Card className="transition-colors hover:bg-accent/50">
+                <CardContent className="py-4 flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-amber-500/10">
+                    <BookOpen className="h-6 w-6 text-amber-600" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-sm font-medium">
+                      UHL Amazon Book Shelf
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      Curated reading list for professional development. Use
+                      your quarterly book benefit or professional development
+                      allowance.
+                    </p>
+                  </div>
+                  <ExternalLink className="h-4 w-4 text-muted-foreground" />
+                </CardContent>
+              </Card>
+            </a>
+
+            <Separator className="my-2" />
+
+            <p className="text-xs text-muted-foreground">
+              Additional recommended reads:
+            </p>
             <div className="grid gap-3 sm:grid-cols-2">
               {amazonBooks.map((book) => (
                 <a
