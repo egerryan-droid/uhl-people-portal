@@ -41,6 +41,14 @@ export const teamDirectory: TeamMember[] = [
     type: "W2",
     reportsTo: "Eric Wirks",
   },
+  {
+    name: "Marcus Henning",
+    email: "marcus@usahomelistings.com",
+    title: "CTO",
+    department: "Leadership",
+    type: "W2",
+    reportsTo: "Eric Wirks",
+  },
 
   // Sales
   {
@@ -85,14 +93,6 @@ export const teamDirectory: TeamMember[] = [
   },
 
   // Engineering
-  {
-    name: "Marcus Henning",
-    email: "marcus@usahomelistings.com",
-    title: "CTO",
-    department: "Engineering",
-    type: "W2",
-    reportsTo: "Eric Wirks",
-  },
   {
     name: "Matt McCammon",
     email: "matt@usahomelistings.com",
