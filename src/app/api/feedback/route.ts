@@ -1,6 +1,7 @@
-import { NextResponse } from "next/server"
+import { NextResponse, after } from "next/server"
 import { auth } from "@/auth"
 import { prisma } from "@/lib/db"
+import { notifyFeedbackSubmitted } from "@/lib/slack"
 
 export async function POST(request: Request) {
   const session = await auth()
@@ -27,6 +28,13 @@ export async function POST(request: Request) {
         message: message.trim(),
       },
     })
+
+    after(() =>
+      notifyFeedbackSubmitted({
+        employeeName: session.user.name ?? session.user.email!,
+        category,
+      })
+    )
 
     return NextResponse.json({ success: true })
   } catch (error) {

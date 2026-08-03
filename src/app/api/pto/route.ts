@@ -1,6 +1,7 @@
-import { NextResponse } from "next/server"
+import { NextResponse, after } from "next/server"
 import { auth } from "@/auth"
 import { prisma } from "@/lib/db"
+import { notifyPtoRequested } from "@/lib/slack"
 
 export async function POST(request: Request) {
   const session = await auth()
@@ -47,6 +48,18 @@ export async function POST(request: Request) {
         reason: reason?.trim() || null,
       },
     })
+
+    // Notify after the response so a slow Slack call never delays the submit.
+    // The raw "YYYY-MM-DD" strings are passed through untouched to avoid the
+    // UTC-vs-local shift that Date objects introduce for date-only values.
+    after(() =>
+      notifyPtoRequested({
+        employeeName: session.user.name ?? session.user.email!,
+        startDate,
+        endDate,
+        totalDays,
+      })
+    )
 
     return NextResponse.json({ success: true })
   } catch (error) {

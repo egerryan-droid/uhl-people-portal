@@ -1,6 +1,7 @@
-import { NextResponse } from "next/server"
+import { NextResponse, after } from "next/server"
 import { auth } from "@/auth"
 import { prisma } from "@/lib/db"
+import { notifyBenefitRequested } from "@/lib/slack"
 
 export async function POST(request: Request) {
   const session = await auth()
@@ -38,6 +39,15 @@ export async function POST(request: Request) {
         url: url || null,
       },
     })
+
+    after(() =>
+      notifyBenefitRequested({
+        employeeName: session.user.name ?? session.user.email!,
+        title: title.trim(),
+        amount,
+        category,
+      })
+    )
 
     return NextResponse.json({ success: true })
   } catch (error) {
