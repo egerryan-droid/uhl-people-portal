@@ -1,3 +1,6 @@
+// Roster synced from the 15Five org chart on 2026-08-03 (21 people).
+// This file is hardcoded, so it drifts on every hire, departure, and title change.
+
 export interface TeamMember {
   name: string
   email: string
@@ -34,14 +37,6 @@ export const teamDirectory: TeamMember[] = [
     reportsTo: "Eric Wirks",
   },
   {
-    name: "Carley Lahiff",
-    email: "carley@usahomelistings.com",
-    title: "COO",
-    department: "Leadership",
-    type: "W2",
-    reportsTo: "Eric Wirks",
-  },
-  {
     name: "Marcus Henning",
     email: "marcus@usahomelistings.com",
     title: "CTO",
@@ -52,20 +47,12 @@ export const teamDirectory: TeamMember[] = [
 
   // Sales
   {
-    name: "Hunter Monroe",
+    name: "Hunter Munroe",
     email: "hunter@usahomelistings.com",
-    title: "VP of Sales",
+    title: "Sales Manager",
     department: "Sales",
     type: "W2",
     reportsTo: "Ryan Eger",
-  },
-  {
-    name: "Hannah Underwood",
-    email: "hannah@usahomelistings.com",
-    title: "Senior Account Executive",
-    department: "Sales",
-    type: "W2",
-    reportsTo: "Hunter Monroe",
   },
   {
     name: "Dee Frazier",
@@ -73,38 +60,46 @@ export const teamDirectory: TeamMember[] = [
     title: "Senior Account Executive",
     department: "Sales",
     type: "W2",
-    reportsTo: "Hunter Monroe",
+    reportsTo: "Hunter Munroe",
+  },
+  {
+    name: "Glen Johnson",
+    email: "glen@usahomelistings.com",
+    title: "Account Executive",
+    department: "Sales",
+    type: "W2",
+    reportsTo: "Hunter Munroe",
+  },
+  {
+    name: "Hannah Underwood",
+    email: "hannah@usahomelistings.com",
+    title: "Biz Dev / Sales Rep",
+    department: "Sales",
+    type: "W2",
+    reportsTo: "Hunter Munroe",
   },
   {
     name: "Eddie Szymczak",
     email: "eddie@usahomelistings.com",
-    title: "Account Executive",
+    title: "Sales Rep",
     department: "Sales",
     type: "W2",
-    reportsTo: "Hunter Monroe",
+    reportsTo: "Hunter Munroe",
   },
   {
     name: "Brandon Runkel",
     email: "brandon@usahomelistings.com",
-    title: "Account Executive",
+    title: "Sales Rep",
     department: "Sales",
     type: "W2",
-    reportsTo: "Hunter Monroe",
+    reportsTo: "Hunter Munroe",
   },
 
   // Engineering
   {
     name: "Matt McCammon",
     email: "matt@usahomelistings.com",
-    title: "Lead Developer",
-    department: "Engineering",
-    type: "W2",
-    reportsTo: "Marcus Henning",
-  },
-  {
-    name: "Beau Eads",
-    email: "beau@usahomelistings.com",
-    title: "Sr. Full-Stack Developer",
+    title: "Lead Software Engineer",
     department: "Engineering",
     type: "W2",
     reportsTo: "Marcus Henning",
@@ -112,15 +107,7 @@ export const teamDirectory: TeamMember[] = [
   {
     name: "AJ Chavarriaga",
     email: "aj@usahomelistings.com",
-    title: "UI / Frontend Developer",
-    department: "Engineering",
-    type: "W2",
-    reportsTo: "Marcus Henning",
-  },
-  {
-    name: "Kyler Ray",
-    email: "kyler@usahomelistings.com",
-    title: "Jr. Developer",
+    title: "Frontend Developer",
     department: "Engineering",
     type: "W2",
     reportsTo: "Marcus Henning",
@@ -133,14 +120,46 @@ export const teamDirectory: TeamMember[] = [
     title: "Customer Success Manager",
     department: "Customer Success",
     type: "W2",
-    reportsTo: "Carley Lahiff",
+    reportsTo: "Ryan Eger",
+  },
+  {
+    name: "Joyce Cao",
+    email: "joyce@usahomelistings.com",
+    title: "Customer Success",
+    department: "Customer Success",
+    type: "W2",
+    reportsTo: "Maggie Campbell",
+  },
+  {
+    name: "Kristen Carroll",
+    email: "kristen@usahomelistings.com",
+    title: "Customer Success",
+    department: "Customer Success",
+    type: "W2",
+    reportsTo: "Maggie Campbell",
+  },
+  {
+    name: "Marissa McMillan",
+    email: "marissa@usahomelistings.com",
+    title: "Customer Success",
+    department: "Customer Success",
+    type: "W2",
+    reportsTo: "Maggie Campbell",
   },
   {
     name: "Darryl Darius",
     email: "darryl@usahomelistings.com",
-    title: "Backend / Data Developer",
+    title: "Customer Success",
     department: "Customer Success",
     type: "W2",
+    reportsTo: "Maggie Campbell",
+  },
+  {
+    name: "Jeffy Lising",
+    email: "jeffy@usahomelistings.com",
+    title: "Customer Service / Virtual Assistant",
+    department: "Customer Success",
+    type: "Contractor",
     reportsTo: "Maggie Campbell",
   },
 
@@ -151,7 +170,15 @@ export const teamDirectory: TeamMember[] = [
     title: "Jr. Marketing Analyst",
     department: "Marketing",
     type: "W2",
-    reportsTo: "Carley Lahiff",
+    reportsTo: "Ryan Eger",
+  },
+  {
+    name: "Munib Fuyad",
+    email: "munib@usahomelistings.com",
+    title: "Graphic & Motion Designer",
+    department: "Marketing",
+    type: "Contractor",
+    reportsTo: "Maggie Campbell",
   },
 
   // Operations & Support
@@ -161,12 +188,12 @@ export const teamDirectory: TeamMember[] = [
     title: "Project Manager",
     department: "Operations & Support",
     type: "Contractor",
-    reportsTo: "Carley Lahiff & Marcus Henning",
+    reportsTo: "Marcus Henning",
   },
   {
     name: "Elle Hucal",
     email: "elle@usahomelistings.com",
-    title: "Tier 1 Support",
+    title: "GVA / General Virtual Assistant",
     department: "Operations & Support",
     type: "Contractor",
     reportsTo: "Maggie Campbell",
