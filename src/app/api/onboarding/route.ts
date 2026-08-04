@@ -2,23 +2,7 @@ import { NextResponse } from "next/server"
 import { auth } from "@/auth"
 import { prisma } from "@/lib/db"
 
-const defaultTasks = [
-  { title: "Complete I-9 and W-4 in ADP", category: "before-start", order: 0 },
-  { title: "Sign offer letter and restrictive covenant", category: "before-start", order: 1 },
-  { title: "Set up Google Workspace account", category: "before-start", order: 2 },
-  { title: "Attend orientation with Ryan", category: "first-day", order: 0 },
-  { title: "Set up Slack and join channels", category: "first-day", order: 1 },
-  { title: "Review Employee Handbook in People Portal", category: "first-day", order: 2 },
-  { title: "Set up equipment via Electric", category: "first-day", order: 3 },
-  { title: "Complete 15Five profile", category: "first-week", order: 0 },
-  { title: "Meet your team members", category: "first-week", order: 1 },
-  { title: "Review your role's OKRs with manager", category: "first-week", order: 2 },
-  { title: "Set up Monday.com access", category: "first-week", order: 3 },
-  { title: "Complete benefits enrollment in ADP", category: "first-month", order: 0 },
-  { title: "Set up 401(k) via TAG Resources", category: "first-month", order: 1 },
-  { title: "Submit first 15Five check-in", category: "first-month", order: 2 },
-  { title: "Complete any role-specific training", category: "first-month", order: 3 },
-]
+import { defaultOnboardingTasks } from "@/data/onboarding-tasks"
 
 export async function GET() {
   const session = await auth()
@@ -32,10 +16,12 @@ export async function GET() {
       orderBy: [{ category: "asc" }, { order: "asc" }],
     })
 
-    // Fall back to defaults if no tasks in DB
+    // Bootstrap only: `npm run db:seed` writes these same ids, so this fires
+    // just on an unseeded database. Because the ids match, progress recorded
+    // against the fallback stays valid once the rows exist.
     if (tasks.length === 0) {
-      tasks = defaultTasks.map((t, i) => ({
-        id: `default-${i}`,
+      tasks = defaultOnboardingTasks.map((t) => ({
+        id: t.id,
         title: t.title,
         description: null,
         category: t.category,
@@ -48,9 +34,15 @@ export async function GET() {
       where: { userId: session.user.id },
     })
 
+    // Restricted to the tasks actually being returned. Progress rows for
+    // deleted or deactivated tasks would otherwise inflate the completion
+    // count, which could read above 100% and claim "all tasks complete".
+    const visibleTaskIds = new Set(tasks.map((t) => t.id))
     const progressMap: Record<string, boolean> = {}
     for (const p of progress) {
-      progressMap[p.taskId] = p.completed
+      if (visibleTaskIds.has(p.taskId)) {
+        progressMap[p.taskId] = p.completed
+      }
     }
 
     return NextResponse.json({ tasks, progress: progressMap })
@@ -70,8 +62,25 @@ export async function PATCH(request: Request) {
     const body = await request.json()
     const { taskId, completed } = body
 
-    if (!taskId) {
+    if (!taskId || typeof taskId !== "string") {
       return NextResponse.json({ error: "Task ID required" }, { status: 400 })
+    }
+
+    if (typeof completed !== "boolean") {
+      return NextResponse.json(
+        { error: "completed must be a boolean" },
+        { status: 400 }
+      )
+    }
+
+    // Checked against the real task set so arbitrary ids cannot accumulate
+    // junk progress rows. The seeded defaults are covered by this.
+    const task = await prisma.onboardingTask.findUnique({
+      where: { id: taskId },
+    })
+    const isKnownDefault = defaultOnboardingTasks.some((t) => t.id === taskId)
+    if (!task && !isKnownDefault) {
+      return NextResponse.json({ error: "Unknown task" }, { status: 404 })
     }
 
     await prisma.onboardingProgress.upsert({
