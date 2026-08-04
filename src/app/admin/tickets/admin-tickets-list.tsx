@@ -88,7 +88,7 @@ export function AdminTicketsList({
 
   const updateTicket = async (
     id: string,
-    updates: { status?: string; priority?: string; assignedTo?: string }
+    updates: { status?: string; priority?: string; assignedTo?: string | null }
   ) => {
     try {
       const res = await fetch("/api/admin/tickets", {
@@ -252,7 +252,7 @@ function TicketManageDialog({
 }: {
   ticket: TicketWithUser
   adminUsers: AdminUser[]
-  onUpdate: (id: string, updates: { status?: string; priority?: string; assignedTo?: string }) => void
+  onUpdate: (id: string, updates: { status?: string; priority?: string; assignedTo?: string | null }) => void
   onComment: (ticketId: string, message: string, internal: boolean) => void
 }) {
   const [status, setStatus] = useState(ticket.status)
@@ -324,7 +324,9 @@ function TicketManageDialog({
             className="w-full"
             size="sm"
             onClick={() =>
-              onUpdate(ticket.id, { status, priority, assignedTo: assignedTo || undefined })
+              // null, not undefined: undefined is indistinguishable from
+              // "unchanged" on the API side, so "Unassigned" never applied.
+              onUpdate(ticket.id, { status, priority, assignedTo: assignedTo || null })
             }
           >
             Save Changes

@@ -74,11 +74,12 @@ export default function AdminOnboardingPage() {
   const deleteTask = async (id: string) => {
     if (!window.confirm("Are you sure you want to delete this onboarding task?")) return
     try {
-      await fetch("/api/admin/onboarding", {
+      const res = await fetch("/api/admin/onboarding", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id }),
       })
+      if (!res.ok) throw new Error()
       setTasks((prev) => prev.filter((t) => t.id !== id))
       toast.success("Task deleted")
     } catch {
