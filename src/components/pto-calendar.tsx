@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { toast } from "sonner"
+import { dateKeyFromParts, toDateKey } from "@/lib/dates"
 
 interface PtoEntry {
   id: string
@@ -35,17 +36,32 @@ export function PtoCalendar() {
   const now = new Date()
   const [year, setYear] = useState(now.getFullYear())
   const [month, setMonth] = useState(now.getMonth())
-  const [entries, setEntries] = useState<PtoEntry[]>([])
-  const [loading, setLoading] = useState(true)
+  // Keyed by the month it belongs to, so a slow response for a month the user
+  // has already navigated away from is ignored rather than painted, and
+  // `loading` is derived instead of set synchronously inside the effect.
+  const [data, setData] = useState<{ key: string; entries: PtoEntry[] } | null>(
+    null
+  )
+  const monthKey = `${year}-${month}`
 
   useEffect(() => {
-    setLoading(true)
+    let cancelled = false
+    const key = `${year}-${month}`
     fetch(`/api/pto/calendar?year=${year}&month=${month + 1}`)
       .then((r) => r.json())
-      .then((data) => setEntries(data.requests ?? []))
-      .catch(() => toast.error("Failed to load calendar"))
-      .finally(() => setLoading(false))
+      .then((d) => {
+        if (!cancelled) setData({ key, entries: d.requests ?? [] })
+      })
+      .catch(() => {
+        if (!cancelled) toast.error("Failed to load calendar")
+      })
+    return () => {
+      cancelled = true
+    }
   }, [year, month])
+
+  const loading = data?.key !== monthKey
+  const entries = data?.key === monthKey ? data.entries : []
 
   const prevMonth = () => {
     if (month === 0) {
@@ -70,12 +86,15 @@ export function PtoCalendar() {
 
   // Build map of day -> entries
   const dayEntries: Record<number, PtoEntry[]> = {}
+  // Compared as "YYYY-MM-DD" keys, which sort lexicographically and carry no
+  // timezone. Comparing Date objects here dropped the range's last day for any
+  // viewer west of UTC.
   for (const entry of entries) {
-    const start = new Date(entry.startDate)
-    const end = new Date(entry.endDate)
+    const startKey = toDateKey(entry.startDate)
+    const endKey = toDateKey(entry.endDate)
     for (let d = 1; d <= daysInMonth; d++) {
-      const date = new Date(year, month, d)
-      if (date >= start && date <= end) {
+      const key = dateKeyFromParts(year, month, d)
+      if (key >= startKey && key <= endKey) {
         if (!dayEntries[d]) dayEntries[d] = []
         dayEntries[d].push(entry)
       }

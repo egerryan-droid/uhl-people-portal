@@ -24,6 +24,11 @@ import {
   Info,
 } from "lucide-react"
 import { toast } from "sonner"
+import {
+  businessDaysBetween,
+  formatDateRange,
+  todayLocalKey,
+} from "@/lib/dates"
 
 interface PtoRequest {
   id: string
@@ -58,17 +63,6 @@ const statusMap: Record<
   },
 }
 
-function getBusinessDays(start: Date, end: Date): number {
-  let count = 0
-  const current = new Date(start)
-  while (current <= end) {
-    const day = current.getDay()
-    if (day !== 0 && day !== 6) count++
-    current.setDate(current.getDate() + 1)
-  }
-  return count
-}
-
 function getNoticeRequirement(days: number): { text: string; warn: boolean } {
   if (days >= 10) return { text: "1 month notice required (2+ weeks of PTO)", warn: true }
   if (days >= 3) return { text: "2 weeks notice required (3+ days of PTO)", warn: true }
@@ -82,10 +76,10 @@ export function PtoClient({ myRequests }: { myRequests: PtoRequest[] }) {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
+  // startDate/endDate are the date input's plain "YYYY-MM-DD" values, counted
+  // as calendar days so the weekday never shifts with the viewer's timezone.
   const totalDays =
-    startDate && endDate
-      ? getBusinessDays(new Date(startDate), new Date(endDate))
-      : 0
+    startDate && endDate ? businessDaysBetween(startDate, endDate) : 0
 
   const notice = totalDays > 0 ? getNoticeRequirement(totalDays) : null
 
@@ -208,7 +202,7 @@ export function PtoClient({ myRequests }: { myRequests: PtoRequest[] }) {
                     type="date"
                     value={startDate}
                     onChange={(e) => setStartDate(e.target.value)}
-                    min={new Date().toISOString().split("T")[0]}
+                    min={todayLocalKey()}
                   />
                 </div>
                 <div className="space-y-2">
@@ -217,7 +211,7 @@ export function PtoClient({ myRequests }: { myRequests: PtoRequest[] }) {
                     type="date"
                     value={endDate}
                     onChange={(e) => setEndDate(e.target.value)}
-                    min={startDate || new Date().toISOString().split("T")[0]}
+                    min={startDate || todayLocalKey()}
                   />
                 </div>
               </div>
@@ -292,8 +286,7 @@ export function PtoClient({ myRequests }: { myRequests: PtoRequest[] }) {
                   {status.icon}
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium">
-                      {new Date(req.startDate).toLocaleDateString()} —{" "}
-                      {new Date(req.endDate).toLocaleDateString()}
+                      {formatDateRange(req.startDate, req.endDate)}
                     </p>
                     <p className="text-xs text-muted-foreground">
                       {req.totalDays} business day{req.totalDays !== 1 ? "s" : ""}
