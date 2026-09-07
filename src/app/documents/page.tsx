@@ -96,7 +96,7 @@ export default async function DocumentsPage() {
             </CardHeader>
             <CardContent>
               <p className="text-xs text-muted-foreground">
-                Review the standard documents you signed when joining UHL.
+                Review the standard documents you signed when you joined.
                 Blank templates available for reference.
               </p>
             </CardContent>

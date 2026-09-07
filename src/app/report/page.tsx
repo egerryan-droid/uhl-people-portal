@@ -128,7 +128,7 @@ export default function ReportPage() {
           <div className="mb-4 rounded-lg bg-muted p-3 space-y-1">
             <p className="text-sm font-medium">Your privacy is protected</p>
             <p className="text-xs text-muted-foreground">
-              This report is anonymous. UHL cannot and will not attempt to
+              This report is anonymous. MHS cannot and will not attempt to
               identify who submitted it. No user account, IP address, or session
               data is stored with this report.
             </p>

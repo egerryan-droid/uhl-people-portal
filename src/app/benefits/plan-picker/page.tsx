@@ -253,7 +253,7 @@ function getRecommendation(answers: Answers) {
   return {
     plan: "B" as const,
     reason:
-      "Since you rarely visit doctors and don't take regular medications, Plan B's lower premiums will save you money month-to-month. Plus, UHL contributes $1,500-$2,000/year to your HSA, and those funds grow tax-free and roll over forever.",
+      "Since you rarely visit doctors and don't take regular medications, Plan B's lower premiums will save you money month-to-month. Plus, MHS contributes $1,500-$2,000/year to your HSA, and those funds grow tax-free and roll over forever.",
   }
 }
 

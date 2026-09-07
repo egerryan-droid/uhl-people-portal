@@ -35,7 +35,7 @@ export default function BenefitsPage() {
       <div>
         <h1 className="text-2xl font-semibold tracking-tight">Benefits</h1>
         <p className="text-muted-foreground">
-          Your 2026 benefits package. UHL pays 75% of medical, dental & vision
+          Your 2026 benefits package. MHS pays 75% of medical, dental & vision
           and 100% of life, STD & LTD.
         </p>
       </div>
@@ -108,7 +108,7 @@ export default function BenefitsPage() {
               <DetailRow label="After deductible" value={medicalPlanB.details.afterDeductible} highlight />
               <DetailRow label="Rx" value={medicalPlanB.details.rx} />
               <DetailRow label="OOP max" value={`${medicalPlanB.details.oopMax} / ${medicalPlanB.details.oopMaxFamily} family`} />
-              <DetailRow label="UHL HSA contribution" value={medicalPlanB.details.hsaContribution} highlight />
+              <DetailRow label="MHS HSA contribution" value={medicalPlanB.details.hsaContribution} highlight />
               <DetailRow label="Premiums vs Plan A" value={medicalPlanB.details.premiumSavings} />
               <Separator />
               <p className="text-xs text-green-600 dark:text-green-400">
@@ -183,7 +183,7 @@ export default function BenefitsPage() {
               <Heart className="h-4 w-4 text-muted-foreground" />
               <CardTitle className="text-base">{dentalPlan.name}</CardTitle>
             </div>
-            <CardDescription>UHL pays {dentalPlan.erContribution}%</CardDescription>
+            <CardDescription>MHS pays {dentalPlan.erContribution}%</CardDescription>
           </CardHeader>
           <CardContent className="space-y-1">
             {Object.entries(dentalPlan.details).map(([k, v]) => (
@@ -199,7 +199,7 @@ export default function BenefitsPage() {
               <Eye className="h-4 w-4 text-muted-foreground" />
               <CardTitle className="text-base">{visionPlan.name}</CardTitle>
             </div>
-            <CardDescription>UHL pays {visionPlan.erContribution}%</CardDescription>
+            <CardDescription>MHS pays {visionPlan.erContribution}%</CardDescription>
           </CardHeader>
           <CardContent className="space-y-1">
             {Object.entries(visionPlan.details).map(([k, v]) => (
@@ -246,7 +246,7 @@ export default function BenefitsPage() {
                 <TableHeader>
                   <TableRow>
                     <TableHead>You contribute</TableHead>
-                    <TableHead className="text-right">UHL matches</TableHead>
+                    <TableHead className="text-right">MHS matches</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -254,7 +254,7 @@ export default function BenefitsPage() {
                     <TableRow key={row.youContribute}>
                       <TableCell>{row.youContribute}</TableCell>
                       <TableCell className="text-right font-medium">
-                        {row.uhlMatches}
+                        {row.mhsMatches}
                       </TableCell>
                     </TableRow>
                   ))}

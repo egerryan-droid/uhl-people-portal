@@ -224,7 +224,7 @@ export const jobDescriptions: JobDescription[] = [
     type: "Full-time (W2)",
     reportsTo: "Eric, CEO",
     summary:
-      "The CTO owns technology. You are responsible for building, leading, and scaling the engineering organization as USA Home Listings transforms into a SaaS platform. This is a builder role -- you are architecting the platform, leading the team, and making the technical decisions that will define the product's future.",
+      "The CTO owns technology. You are responsible for building, leading, and scaling the engineering organization as My Home Story transforms into a SaaS platform. This is a builder role -- you are architecting the platform, leading the team, and making the technical decisions that will define the product's future.",
     responsibilities: [
       "Own the technical architecture for the SaaS platform transformation",
       "Lead development of API layer and data lake infrastructure",
@@ -269,7 +269,7 @@ export const jobDescriptions: JobDescription[] = [
     type: "Full-time (W2)",
     reportsTo: "Eric, CEO",
     summary:
-      "The VP of Sales owns revenue. You are responsible for building, leading, and scaling a high-performing sales organization as USA Home Listings transforms into a SaaS platform. This is a coaching role -- you hire the right people, build the systems, set the quotas, and create an environment where your team can win.",
+      "The VP of Sales owns revenue. You are responsible for building, leading, and scaling a high-performing sales organization as My Home Story transforms into a SaaS platform. This is a coaching role -- you hire the right people, build the systems, set the quotas, and create an environment where your team can win.",
     responsibilities: [
       "Own the team revenue target for new ARR",
       "Set and manage individual quotas across all AEs",

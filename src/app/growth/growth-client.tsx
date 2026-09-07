@@ -87,7 +87,7 @@ export function GrowthClient({
           Growth & Training
         </h1>
         <p className="text-muted-foreground">
-          Invest in your development. UHL provides $2,000/year for courses,
+          Invest in your development. MHS provides $2,000/year for courses,
           books, certifications, and conferences — plus a quarterly book benefit.
         </p>
       </div>
@@ -117,12 +117,12 @@ export function GrowthClient({
         </TabsList>
 
         <TabsContent value="resources" className="space-y-6 mt-4">
-          {/* UHL Training Playlist */}
+          {/* MHS Training Playlist */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <Video className="h-4 w-4 text-red-500" />
               <h2 className="text-sm font-medium uppercase text-muted-foreground">
-                UHL Training Playlist
+                MHS Training Playlist
               </h2>
             </div>
             <Card>
@@ -132,7 +132,7 @@ export function GrowthClient({
                     width="100%"
                     height="100%"
                     src="https://www.youtube.com/embed/videoseries?list=PLrUnBGI75Kyu4b7xF7Vf2KdIs8VPBaaOd"
-                    title="UHL Training Playlist"
+                    title="MHS Training Playlist"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
@@ -190,7 +190,7 @@ export function GrowthClient({
             <div className="flex items-center gap-2">
               <BookOpen className="h-4 w-4 text-amber-600" />
               <h2 className="text-sm font-medium uppercase text-muted-foreground">
-                UHL Book Shelf
+                MHS Book Shelf
               </h2>
             </div>
             <a
@@ -205,7 +205,7 @@ export function GrowthClient({
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-medium">
-                      UHL Amazon Book Shelf
+                      MHS Amazon Book Shelf
                     </p>
                     <p className="text-xs text-muted-foreground">
                       Curated reading list for professional development. Use

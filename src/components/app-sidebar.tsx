@@ -100,7 +100,7 @@ export function AppSidebar({ userRole }: { userRole?: string }) {
       <div className="flex flex-col gap-1 px-3">
         <div className="mb-2 flex items-center gap-2 px-3">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#042C53]">
-            <span className="text-xs font-bold text-white">UHL</span>
+            <span className="text-xs font-bold text-white">MHS</span>
           </div>
           <span className="font-semibold">People Portal</span>
         </div>

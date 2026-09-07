@@ -28,7 +28,7 @@ async function main() {
     update: {},
     create: {
       id: "welcome-announcement",
-      title: "Welcome to the UHL People Portal!",
+      title: "Welcome to the MHS People Portal!",
       content:
         "This is your new one-stop hub for company policies, benefits information, quick links to tools, and more. We're launching in alpha — your feedback helps us improve. Use the Feedback page to share your thoughts!",
       active: true,
