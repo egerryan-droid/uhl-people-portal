@@ -1,7 +1,8 @@
 // My Home Story, Inc. Employee Handbook — Amended & Restated, effective
 // September 8, 2026. Supersedes the USA Home Listings edition dated January
 // 2026. Source of record: 2026-09-08_MHS_Employee_Handbook_Amended_and_Restated
-// (PDF/DOCX). Section 47 deliberately reads MHS; the source PDF left it as UHL.
+// (PDF/DOCX). Section 47 reads USA Home Listings, LLC ("UHL") on purpose:
+// contractors remain engaged by UHL; only employees moved to My Home Story, Inc.
 
 export interface HandbookSection {
   id: string;
@@ -1506,26 +1507,26 @@ This acknowledgement will be kept in your personnel file. A copy will be provide
     id: "contractor-handbook-acknowledgement",
     number: 47,
     title: "Contractor Handbook Acknowledgement",
-    content: `I acknowledge that I have received and reviewed the applicable sections of the My Home Story, Inc. Handbook as they pertain to contractors. I understand that:
+    content: `I acknowledge that I have received and reviewed the applicable sections of the USA Home Listings, LLC ("UHL") Handbook as they pertain to contractors. I understand that:
 
-1. I am a contractor, not an employee of MHS. I am not eligible for employee benefits, equity, or protections unless explicitly stated in my contract.
+1. I am a contractor, not an employee of UHL. I am not eligible for employee benefits, equity, or protections unless explicitly stated in my contract.
 
 2. The policies that apply to me are outlined in the Contractor Policies section of this handbook.
 
-3. I agree to comply with the following MHS policies:
+3. I agree to comply with the following UHL policies:
    - Confidentiality
    - Social Media Policy
    - Workplace Conduct
    - Anti-Bribery & Anti-Corruption
    - Reporting Concerns
 
-4. I understand my obligation to protect MHS's confidential information and intellectual property.
+4. I understand my obligation to protect UHL's confidential information and intellectual property.
 
 5. I will comply with all applicable laws in my jurisdiction.
 
 6. I understand I may report concerns through the same channels available to employees, without fear of retaliation.
 
-7. My engagement with MHS is governed by my contractor agreement. In any conflict between this handbook and my contractor agreement, the contractor agreement controls.
+7. My engagement with UHL is governed by my contractor agreement. In any conflict between this handbook and my contractor agreement, the contractor agreement controls.
 
 8. I have received a copy of the relevant handbook sections for my records.
 
