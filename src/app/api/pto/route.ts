@@ -2,6 +2,11 @@ import { NextResponse, after } from "next/server"
 import { auth } from "@/auth"
 import { prisma } from "@/lib/db"
 import { notifyPtoRequested } from "@/lib/slack"
+import {
+  businessDaysBetween,
+  dateKeyToUtcDate,
+  isValidDateKey,
+} from "@/lib/dates"
 
 export async function POST(request: Request) {
   const session = await auth()
@@ -11,14 +16,28 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json()
-    const { startDate, endDate, totalDays, reason } = body
+    const { startDate, endDate, reason } = body
 
-    if (!startDate || !endDate || !totalDays) {
+    // Validated as calendar-day keys. Previously an unparseable date became an
+    // Invalid Date, slipped past the `end < start` guard because NaN
+    // comparisons are false, and surfaced as an opaque 500 from Prisma.
+    if (!isValidDateKey(startDate) || !isValidDateKey(endDate)) {
       return NextResponse.json(
-        { error: "Start date, end date, and total days are required." },
+        { error: "Start and end date must be valid dates (YYYY-MM-DD)." },
         { status: 400 }
       )
     }
+
+    if (endDate < startDate) {
+      return NextResponse.json(
+        { error: "End date must be after start date." },
+        { status: 400 }
+      )
+    }
+
+    // Derived here rather than taken from the request, so a hand-crafted body
+    // cannot record a day count that disagrees with the dates.
+    const totalDays = businessDaysBetween(startDate, endDate)
 
     if (totalDays < 2) {
       return NextResponse.json(
@@ -27,15 +46,8 @@ export async function POST(request: Request) {
       )
     }
 
-    const start = new Date(startDate)
-    const end = new Date(endDate)
-
-    if (end < start) {
-      return NextResponse.json(
-        { error: "End date must be after start date." },
-        { status: 400 }
-      )
-    }
+    const start = dateKeyToUtcDate(startDate)
+    const end = dateKeyToUtcDate(endDate)
 
     await prisma.ptoRequest.create({
       data: {

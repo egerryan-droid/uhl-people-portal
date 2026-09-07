@@ -60,11 +60,12 @@ export default function AdminHolidaysPage() {
   const deleteHoliday = async (id: string) => {
     if (!window.confirm("Are you sure you want to delete this holiday?")) return
     try {
-      await fetch("/api/admin/holidays", {
+      const res = await fetch("/api/admin/holidays", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id }),
       })
+      if (!res.ok) throw new Error()
       setHolidays((prev) => prev.filter((h) => h.id !== id))
       toast.success("Holiday deleted")
     } catch {

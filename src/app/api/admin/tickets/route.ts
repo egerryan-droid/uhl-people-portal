@@ -1,7 +1,18 @@
-import { NextResponse } from "next/server"
+import { NextResponse, after } from "next/server"
 import { auth } from "@/auth"
 import { prisma } from "@/lib/db"
 import { notifyTicketUpdate } from "@/lib/slack"
+
+// Must stay in step with the filter lists the UI renders; a value outside these
+// matches no filter and hides the ticket from every view.
+const TICKET_STATUSES = [
+  "open",
+  "in-progress",
+  "waiting-on-employee",
+  "resolved",
+  "closed",
+] as const
+const TICKET_PRIORITIES = ["low", "normal", "high", "urgent"] as const
 
 async function requireAdmin() {
   const session = await auth()
@@ -59,22 +70,39 @@ export async function PATCH(request: Request) {
       )
     }
 
+    if (status !== undefined && !TICKET_STATUSES.includes(status)) {
+      return NextResponse.json(
+        { error: `status must be one of: ${TICKET_STATUSES.join(", ")}` },
+        { status: 400 }
+      )
+    }
+
+    if (priority !== undefined && !TICKET_PRIORITIES.includes(priority)) {
+      return NextResponse.json(
+        { error: `priority must be one of: ${TICKET_PRIORITIES.join(", ")}` },
+        { status: 400 }
+      )
+    }
+
     const ticket = await prisma.ticket.update({
       where: { id },
       include: { user: { select: { name: true, email: true } } },
       data: {
         ...(status && { status }),
         ...(priority && { priority }),
-        ...(assignedTo !== undefined && { assignedTo }),
+        // null clears the assignment; undefined leaves it untouched.
+        ...(assignedTo !== undefined && { assignedTo: assignedTo || null }),
       },
     })
 
     if (status) {
-      notifyTicketUpdate(
-        ticket.title,
-        status,
-        ticket.user.name ?? ticket.user.email ?? "Employee"
-      ).catch(() => {})
+      after(() =>
+        notifyTicketUpdate(
+          ticket.title,
+          status,
+          ticket.user.name ?? ticket.user.email ?? "Employee"
+        )
+      )
     }
 
     return NextResponse.json({ success: true })

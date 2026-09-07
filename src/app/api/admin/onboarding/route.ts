@@ -54,8 +54,24 @@ export async function DELETE(request: Request) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 })
   }
 
-  const body = await request.json()
-  await prisma.onboardingTask.delete({ where: { id: body.id } })
+  try {
+    const body = await request.json()
+    if (!body?.id || typeof body.id !== "string") {
+      return NextResponse.json({ error: "Task ID required" }, { status: 400 })
+    }
 
-  return NextResponse.json({ success: true })
+    // OnboardingProgress has no foreign key to OnboardingTask, so nothing
+    // cascades. Left behind, those rows would keep counting toward every
+    // employee's completion percentage.
+    await prisma.onboardingProgress.deleteMany({ where: { taskId: body.id } })
+    await prisma.onboardingTask.delete({ where: { id: body.id } })
+
+    return NextResponse.json({ success: true })
+  } catch (error) {
+    console.error("Onboarding task delete error:", error)
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    )
+  }
 }

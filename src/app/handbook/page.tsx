@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useRef, useState } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import { handbookSections } from "@/data/handbook/sections"
 import { HandbookSearchBar } from "@/components/handbook/search-bar"
@@ -23,23 +23,21 @@ export default function HandbookPage() {
   const router = useRouter()
   const sectionParam = searchParams.get("section")
 
-  const [activeSectionId, setActiveSectionId] = useState(
-    sectionParam ?? handbookSections[0]?.id ?? "welcome"
-  )
   const [selectedState, setSelectedState] = useState<string>("")
+  const contentRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    if (sectionParam && sectionParam !== activeSectionId) {
-      setActiveSectionId(sectionParam)
-    }
-  }, [sectionParam, activeSectionId])
-
-  const activeSection = handbookSections.find((s) => s.id === activeSectionId) ?? handbookSections[0]
+  // Derived from the URL rather than mirrored into state. Duplicating it meant
+  // the sync effect could observe the old param after a click and revert the
+  // selection, flicking the reader back to the previous section mid-navigation.
+  const activeSectionId = sectionParam ?? handbookSections[0]?.id ?? "welcome"
+  const activeSection =
+    handbookSections.find((s) => s.id === activeSectionId) ?? handbookSections[0]
 
   const handleSelectSection = (id: string) => {
-    setActiveSectionId(id)
     router.push(`/handbook?section=${id}`, { scroll: false })
-    window.scrollTo({ top: 0, behavior: "smooth" })
+    // The page shell is `overflow-hidden`, so the window never scrolls — the
+    // inner column is the scroll container and has to be reset directly.
+    contentRef.current?.scrollTo({ top: 0, behavior: "smooth" })
   }
 
   return (
@@ -95,7 +93,7 @@ export default function HandbookPage() {
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto p-4 lg:p-8">
+        <div ref={contentRef} className="flex-1 overflow-y-auto p-4 lg:p-8">
           {activeSection && (
             <SectionContent
               section={activeSection}

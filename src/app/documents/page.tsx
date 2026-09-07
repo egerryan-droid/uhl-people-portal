@@ -145,7 +145,7 @@ export default async function DocumentsPage() {
                 {docs.map((doc) => (
                   <a
                     key={doc.id}
-                    href={doc.fileUrl}
+                    href={`/api/documents/${doc.id}/download`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

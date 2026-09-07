@@ -1,7 +1,10 @@
-import { NextResponse } from "next/server"
+import { NextResponse, after } from "next/server"
 import { auth } from "@/auth"
 import { prisma } from "@/lib/db"
 import { notifyPtoApproval } from "@/lib/slack"
+import { formatDateOnly } from "@/lib/dates"
+
+const PTO_STATUSES = ["pending", "approved", "denied"] as const
 
 async function requireAdmin() {
   const session = await auth()
@@ -35,22 +38,35 @@ export async function PATCH(request: Request) {
       return NextResponse.json({ error: "Request ID required" }, { status: 400 })
     }
 
+    // Rejected rather than written through: an unrecognised status matches no
+    // filter, so the request would vanish from every view in the admin UI.
+    if (status !== undefined && !PTO_STATUSES.includes(status)) {
+      return NextResponse.json(
+        { error: `status must be one of: ${PTO_STATUSES.join(", ")}` },
+        { status: 400 }
+      )
+    }
+
     const ptoRequest = await prisma.ptoRequest.update({
       where: { id },
       data: {
         ...(status && { status }),
         ...(adminNotes !== undefined && { adminNotes }),
-        reviewedBy: session.user.name ?? session.user.email,
+        // Only stamped on a decision, so editing notes does not reattribute
+        // who reviewed the request.
+        ...(status && { reviewedBy: session.user.name ?? session.user.email }),
       },
     })
 
     if (status === "approved" || status === "denied") {
-      notifyPtoApproval(
-        ptoRequest.userName ?? ptoRequest.userEmail,
-        ptoRequest.startDate.toLocaleDateString(),
-        ptoRequest.endDate.toLocaleDateString(),
-        status
-      ).catch(() => {})
+      after(() =>
+        notifyPtoApproval(
+          ptoRequest.userName ?? ptoRequest.userEmail,
+          formatDateOnly(ptoRequest.startDate),
+          formatDateOnly(ptoRequest.endDate),
+          status
+        )
+      )
     }
 
     return NextResponse.json({ success: true })

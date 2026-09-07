@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { formatDateOnly, formatDateRange } from "@/lib/dates"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -106,7 +107,7 @@ export function AdminPtoList({ initialRequests }: { initialRequests: PtoReq[] })
                 <TableRow key={req.id}>
                   <TableCell className="text-sm">{req.userName ?? req.userEmail}</TableCell>
                   <TableCell className="text-sm whitespace-nowrap">
-                    {new Date(req.startDate).toLocaleDateString()} — {new Date(req.endDate).toLocaleDateString()}
+                    {formatDateRange(req.startDate, req.endDate)}
                   </TableCell>
                   <TableCell className="text-center font-medium">{req.totalDays}</TableCell>
                   <TableCell className="text-sm max-w-xs truncate text-muted-foreground">
@@ -160,11 +161,11 @@ function PtoReviewDialog({
             </div>
             <div>
               <p className="text-muted-foreground">Start</p>
-              <p className="font-medium">{new Date(request.startDate).toLocaleDateString()}</p>
+              <p className="font-medium">{formatDateOnly(request.startDate)}</p>
             </div>
             <div>
               <p className="text-muted-foreground">End</p>
-              <p className="font-medium">{new Date(request.endDate).toLocaleDateString()}</p>
+              <p className="font-medium">{formatDateOnly(request.endDate)}</p>
             </div>
           </div>
 

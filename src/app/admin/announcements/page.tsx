@@ -61,11 +61,12 @@ export default function AdminAnnouncementsPage() {
 
   const toggleActive = async (id: string, active: boolean) => {
     try {
-      await fetch("/api/admin/announcements", {
+      const res = await fetch("/api/admin/announcements", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id, active }),
       })
+      if (!res.ok) throw new Error()
       setAnnouncements((prev) =>
         prev.map((a) => (a.id === id ? { ...a, active } : a))
       )
@@ -76,11 +77,12 @@ export default function AdminAnnouncementsPage() {
 
   const deleteAnnouncement = async (id: string) => {
     try {
-      await fetch("/api/admin/announcements", {
+      const res = await fetch("/api/admin/announcements", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id }),
       })
+      if (!res.ok) throw new Error()
       setAnnouncements((prev) => prev.filter((a) => a.id !== id))
       toast.success("Announcement deleted")
     } catch {

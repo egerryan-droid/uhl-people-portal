@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client"
+import { defaultOnboardingTasks } from "../src/data/onboarding-tasks"
 
 const prisma = new PrismaClient()
 
@@ -35,6 +36,23 @@ async function main() {
     },
   })
   console.log("Seeded welcome announcement")
+
+  // Upsert by fixed id, so re-running never duplicates and never clobbers an
+  // admin's edits to a task's wording.
+  for (const task of defaultOnboardingTasks) {
+    await prisma.onboardingTask.upsert({
+      where: { id: task.id },
+      update: {},
+      create: {
+        id: task.id,
+        title: task.title,
+        category: task.category,
+        order: task.order,
+        active: true,
+      },
+    })
+  }
+  console.log(`Seeded ${defaultOnboardingTasks.length} onboarding tasks`)
 }
 
 main()

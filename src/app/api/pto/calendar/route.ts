@@ -9,12 +9,30 @@ export async function GET(request: Request) {
   }
 
   const { searchParams } = new URL(request.url)
-  const year = parseInt(searchParams.get("year") ?? new Date().getFullYear().toString())
-  const month = parseInt(searchParams.get("month") ?? (new Date().getMonth() + 1).toString())
+  const now = new Date()
+  const year = Number(searchParams.get("year") ?? now.getUTCFullYear())
+  const month = Number(searchParams.get("month") ?? now.getUTCMonth() + 1)
 
-  // Get first/last day of month for filtering
-  const startOfMonth = new Date(year, month - 1, 1)
-  const endOfMonth = new Date(year, month, 0) // last day of month
+  // Rejected explicitly: a non-numeric param used to become NaN, then an
+  // Invalid Date, then an opaque 500 out of Prisma.
+  if (
+    !Number.isInteger(year) ||
+    !Number.isInteger(month) ||
+    year < 1970 ||
+    year > 2200 ||
+    month < 1 ||
+    month > 12
+  ) {
+    return NextResponse.json(
+      { error: "year and month must be integers (month 1-12)." },
+      { status: 400 }
+    )
+  }
+
+  // Built in UTC to match the `@db.Date` columns, which are stored at UTC
+  // midnight. Local construction only agreed with them on a UTC host.
+  const startOfMonth = new Date(Date.UTC(year, month - 1, 1))
+  const endOfMonth = new Date(Date.UTC(year, month, 0))
 
   try {
     const isAdmin = session.user.role === "admin"

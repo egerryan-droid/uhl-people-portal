@@ -31,10 +31,12 @@ interface Doc {
 }
 
 const categories = ["hr", "benefits", "agreements", "other"]
+// Only the two the employee-facing query actually honours. "sales" and "cs"
+// were selectable but matched nothing there, and User has no team column, so
+// documents saved under them were visible to nobody. Restoring per-team
+// visibility needs a team field on User plus a matching filter.
 const visibilities = [
   { value: "all", label: "All employees" },
-  { value: "sales", label: "Sales team" },
-  { value: "cs", label: "CS team" },
   { value: "admin", label: "Admins only" },
 ]
 
@@ -90,11 +92,12 @@ export default function AdminDocumentsPage() {
 
   const deleteDoc = async (id: string) => {
     try {
-      await fetch("/api/admin/documents", {
+      const res = await fetch("/api/admin/documents", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id }),
       })
+      if (!res.ok) throw new Error()
       setDocs((prev) => prev.filter((d) => d.id !== id))
       toast.success("Document deleted")
     } catch {
