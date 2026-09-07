@@ -1,6 +1,7 @@
 // Roster synced from the 15Five org chart on 2026-08-03 (21 people); Dee Frazier and
 // Darryl Darius removed on 2026-09-08 after termination; Elizabeth Ropati added the
-// same day (20 people).
+// same day (20 people). Marisa McMillan and Munib Fuyad emails corrected 2026-09-08 to the
+// addresses they actually sign in with.
 // This file is hardcoded, so it drifts on every hire, departure, and title change.
 
 export interface TeamMember {
@@ -141,8 +142,8 @@ export const teamDirectory: TeamMember[] = [
     reportsTo: "Maggie Campbell",
   },
   {
-    name: "Marissa McMillan",
-    email: "marissa@usahomelistings.com",
+    name: "Marisa McMillan",
+    email: "marisa@usahomelistings.com",
     title: "Customer Success",
     department: "Customer Success",
     type: "W2",
@@ -168,7 +169,7 @@ export const teamDirectory: TeamMember[] = [
   },
   {
     name: "Munib Fuyad",
-    email: "munib@usahomelistings.com",
+    email: "munib.design@usahomelistings.com",
     title: "Graphic & Motion Designer",
     department: "Marketing",
     type: "Contractor",
