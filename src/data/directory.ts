@@ -1,4 +1,5 @@
-// Roster synced from the 15Five org chart on 2026-08-03 (21 people).
+// Roster synced from the 15Five org chart on 2026-08-03 (21 people); Dee Frazier and
+// Darryl Darius removed on 2026-09-08 after termination (19 people).
 // This file is hardcoded, so it drifts on every hire, departure, and title change.
 
 export interface TeamMember {
@@ -53,14 +54,6 @@ export const teamDirectory: TeamMember[] = [
     department: "Sales",
     type: "W2",
     reportsTo: "Ryan Eger",
-  },
-  {
-    name: "Dee Frazier",
-    email: "dee@usahomelistings.com",
-    title: "Senior Account Executive",
-    department: "Sales",
-    type: "W2",
-    reportsTo: "Hunter Munroe",
   },
   {
     name: "Glen Johnson",
@@ -141,14 +134,6 @@ export const teamDirectory: TeamMember[] = [
   {
     name: "Marissa McMillan",
     email: "marissa@usahomelistings.com",
-    title: "Customer Success",
-    department: "Customer Success",
-    type: "W2",
-    reportsTo: "Maggie Campbell",
-  },
-  {
-    name: "Darryl Darius",
-    email: "darryl@usahomelistings.com",
     title: "Customer Success",
     department: "Customer Success",
     type: "W2",
