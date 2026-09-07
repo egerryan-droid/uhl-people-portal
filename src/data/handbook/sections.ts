@@ -1,3 +1,8 @@
+// My Home Story, Inc. Employee Handbook — Amended & Restated, effective
+// September 8, 2026. Supersedes the USA Home Listings edition dated January
+// 2026. Source of record: 2026-09-08_MHS_Employee_Handbook_Amended_and_Restated
+// (PDF/DOCX). Section 47 deliberately reads MHS; the source PDF left it as UHL.
+
 export interface HandbookSection {
   id: string;
   number: number;
@@ -13,7 +18,10 @@ export const handbookSections: HandbookSection[] = [
     id: "welcome-to-my-home-story",
     number: 1,
     title: "Welcome to My Home Story",
-    content: `Welcome to My Home Story Inc. ("MHS" or the "Company"). You are now part of a company transforming the home services industry through data and technology.
+    content: `> **Notice of Amendment — Entity Change.** Effective September 8, 2026, the employing entity for company staff changed from USA Home Listings ("UHL") to My Home Story, Inc. ("MHS") as part of the corporate reorganization. This edition of the handbook is amended and restated to reflect that change. All references to "UHL" or "USA Home Listings" in prior editions are read as references to My Home Story, Inc. Your role, compensation, benefits, and continuous service date are not changed by this amendment except as set out in your MHS offer letter. Policies themselves are otherwise unchanged from the January 2026 edition. This handbook is not an employment contract, and employment with MHS remains at will.
+> *Amended & Restated — effective September 8, 2026. Supersedes the USA Home Listings Employee Handbook dated January 2026.*
+
+Welcome to the My Home Story, Inc. ("MHS" or the "Company") team. You are now part of a company transforming the home services industry through data and technology.
 
 ## Purpose of This Handbook
 
@@ -40,8 +48,8 @@ This handbook provides the policies, guidelines, and expectations that govern ho
 
 If policies in this handbook conflict with your offer letter or employment agreement, the offer letter or employment agreement controls.
 
-**Questions?** Contact Ryan Eger, Chief of Staff/CSO.`,
-    lastUpdated: "September 2026",
+**Questions?** Contact Ryan Eger, President/Chief Strategy Officer.`,
+    lastUpdated: "September 8, 2026",
     category: "general",
   },
   {
@@ -56,20 +64,20 @@ To democratize real estate data infrastructure to help home service businesses g
 
 ## Our Vision
 
-By 2030, MHS will be the leading SaaS marketing platform powering the home services ecosystem -- trusted by thousands of businesses to drive growth through actionable data and marketing execution.
+By 2030, MHS will be the leading SaaS marketing platform powering the home services ecosystem—trusted by thousands of businesses to drive growth through actionable data and marketing execution.
 
 ## Our Values
 
-**Ownership** -- We take responsibility for our work and outcomes. No excuses, no finger-pointing.
+**Ownership** — We take responsibility for our work and outcomes. No excuses, no finger-pointing.
 
-**Transparency** -- We share information openly. Bad news travels fast; good news is celebrated together.
+**Transparency** — We share information openly. Bad news travels fast; good news is celebrated together.
 
-**Results** -- We measure what matters and hold ourselves accountable. Activity is not achievement.
+**Results** — We measure what matters and hold ourselves accountable. Activity is not achievement.
 
-**Growth** -- We invest in ourselves and each other. Better every day.
+**Growth** — We invest in ourselves and each other. Better every day.
 
-**Trust** -- We assume good intent. We do what we say we will do.`,
-    lastUpdated: "September 2026",
+**Trust** — We assume good intent. We do what we say we will do.`,
+    lastUpdated: "September 8, 2026",
     category: "general",
   },
   {
@@ -79,7 +87,7 @@ By 2030, MHS will be the leading SaaS marketing platform powering the home servi
     content: `Employment at MHS is at-will. This means either you or MHS may end the employment relationship at any time, with or without cause, and with or without notice.
 
 Nothing in this handbook or any other company document creates a contract of employment or guarantees employment for any specific duration. Only the CEO or Board of Directors may modify the at-will relationship, and any such modification must be in writing.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "general",
   },
   {
@@ -91,7 +99,7 @@ Nothing in this handbook or any other company document creates a contract of emp
 This applies to all employment decisions including hiring, promotion, compensation, discipline, training, and termination.
 
 If you believe you have experienced or witnessed discrimination, report it immediately per the Reporting Concerns policy.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "conduct",
   },
   {
@@ -122,17 +130,17 @@ Harassment is defined as unwelcome verbal, visual or physical conduct creating a
 
 Sexual harassment may involve a variety of unwanted, unwelcome and repeated behaviors such as:
 
-- **Verbal harassment** -- epithets, derogatory comments or slurs. Examples: Name-calling, belittling, sexually explicit or degrading words to describe an individual, sexually explicit jokes, comments about an employee's anatomy and/or dress, sexually oriented noises or remarks, questions about a person's sexual practices, use of patronizing terms or remarks, verbal abuse, or graphic verbal commentaries about the body.
+- **Verbal harassment** — epithets, derogatory comments or slurs. Examples: Name-calling, belittling, sexually explicit or degrading words to describe an individual, sexually explicit jokes, comments about an employee's anatomy and/or dress, sexually oriented noises or remarks, questions about a person's sexual practices, use of patronizing terms or remarks, verbal abuse, or graphic verbal commentaries about the body.
 
-- **Physical harassment** -- assault, impeding or blocking movement, or any physical interference with normal work or movement, when directed at an individual. Examples: touching, pinching, patting, grabbing, brushing against or poking another employee's body, hazing or initiation that involves a sexual component, requiring or requesting that an employee wear sexually suggestive clothing.
+- **Physical harassment** — assault, impeding or blocking movement, or any physical interference with normal work or movement, when directed at an individual. Examples: touching, pinching, patting, grabbing, brushing against or poking another employee's body, hazing or initiation that involves a sexual component, requiring or requesting that an employee wear sexually suggestive clothing.
 
-- **Visual harassment** -- derogatory posters, cartoons, drawings, or pictures. Examples: displaying sexual pictures, writing or objects, obscene letters or invitations, staring at an employee's anatomy, leering, sexually oriented gestures, mooning, unwanted love letters or notes.
+- **Visual harassment** — derogatory posters, cartoons, drawings, or pictures. Examples: displaying sexual pictures, writing or objects, obscene letters or invitations, staring at an employee's anatomy, leering, sexually oriented gestures, mooning, unwanted love letters or notes.
 
-- **Sexual favors** -- unwanted sexual advances that condition an employment benefit upon an exchange of sexual favors. Examples: continued requests for dates, any threat of demotion, termination, etc., if requested sexual favors are not given, making or threatening reprisals after a negative response to sexual advances, or propositioning an individual.
+- **Sexual favors** — unwanted sexual advances that condition an employment benefit upon an exchange of sexual favors. Examples: continued requests for dates, any threat of demotion, termination, etc., if requested sexual favors are not given, making or threatening reprisals after a negative response to sexual advances, or propositioning an individual.
 
-- **Bullying** -- defined as repeated mistreatment of one or more persons (the targets) by one or more perpetrators. It is abusive conduct that is:
+- **Bullying** — defined as repeated mistreatment of one or more persons (the targets) by one or more perpetrators. It is abusive conduct that is:
   - Threatening, humiliating or intimidating, or
-  - Work interference -- sabotage -- which prevents work from getting done, or verbal abuse
+  - Work interference—sabotage—which prevents work from getting done, or verbal abuse
 
 - **Threats and demands** to submit to sexual requests as a condition of continued employment, or to avoid some other loss and offers of employment benefits in return for sexual favors.
 
@@ -161,7 +169,7 @@ Anyone who reports discrimination or harassment in good faith, opposes practices
 Violations may result in disciplinary action up to and including termination.
 
 **Employees in Massachusetts:** See Local Law Addendum for additional information regarding M.G.L. c. 151B.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     stateSpecific: ["MA"],
     category: "conduct",
   },
@@ -177,7 +185,7 @@ This policy also applies to accommodations related to pregnancy, childbirth, and
 
 ## Requesting an Accommodation
 
-- Contact Ryan Eger, Chief of Staff/CSO
+- Contact Ryan Eger, President/Chief Strategy Officer
 - You may be asked to provide documentation from a healthcare provider
 - MHS will engage in an interactive process to determine appropriate accommodations
 
@@ -188,7 +196,7 @@ All medical information related to accommodation requests is kept confidential a
 Retaliation against anyone requesting an accommodation is prohibited.
 
 **Employees in Massachusetts:** See Local Law Addendum for additional information regarding M.G.L. c. 151B.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     stateSpecific: ["MA"],
     category: "conduct",
   },
@@ -235,7 +243,7 @@ When on approved PTO, you are not expected to work, check email, or respond to S
 Flexible PTO is not accrued, earned, or vested. PTO is not paid out upon separation.
 
 **Employees in New York City:** Leave may be used by an employee for any of the purposes under the Earned Safe & Sick Time Act (ESSTA) without any condition prohibited by ESSTA. See Local Law Addendum for additional information.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     stateSpecific: ["NY"],
     category: "leave",
   },
@@ -247,15 +255,15 @@ Flexible PTO is not accrued, earned, or vested. PTO is not paid out upon separat
 
 ## Philosophy
 
-MHS provides flexible sick leave for health-related absences. There is no annual cap -- take what you need to recover, attend medical appointments, or care for an immediate family member.
+MHS provides flexible sick leave for health-related absences. There is no annual cap—take what you need to recover, attend medical appointments, or care for an immediate family member.
 
 ## Notification to Your Manager (Not Request)
 
-Sick leave does not require approval. You must notify your manager as early as possible on the day of absence -- preferably before your workday begins. A brief message is sufficient: "I'm sick today and won't be working."
+Sick leave does not require approval. You must notify your manager as early as possible on the day of absence—preferably before your workday begins. A brief message is sufficient: "I'm sick today and won't be working."
 
 ## Guidelines
 
-- Notify via Slack, text, or email -- whatever reaches your manager fastest
+- Notify via Slack, text, or email—whatever reaches your manager fastest
 - If you know in advance (scheduled procedure), provide early notice for coverage
 - Absences of 3+ consecutive days may require documentation (doctor's note or fitness-for-duty clearance)
 - For long-term and extended health concerns, please contact HR to discuss leave options
@@ -267,7 +275,7 @@ MHS tracks sick leave usage to meet state reporting requirements. This tracking 
 ## Separation
 
 Sick leave is not paid out upon separation.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "leave",
   },
   {
@@ -289,8 +297,8 @@ If a holiday falls on a weekend, MHS will announce the observed day (typically t
 
 ## Personal Observances
 
-We recognize employees observe many religious, cultural, and personal holidays beyond this list. Use Flexible PTO for any additional days meaningful to you -- no justification required.`,
-    lastUpdated: "September 2026",
+We recognize employees observe many religious, cultural, and personal holidays beyond this list. Use Flexible PTO for any additional days meaningful to you—no justification required.`,
+    lastUpdated: "September 8, 2026",
     category: "leave",
   },
   {
@@ -318,7 +326,7 @@ Employees may be eligible for additional unpaid leave under the Family and Medic
 ## While on Leave
 
 - You are not expected to work, check email, or attend meetings
-- Do not perform any work for MHS -- this protects your leave status and benefits
+- Do not perform any work for MHS—this protects your leave status and benefits
 - Focus on your family; your team will handle coverage
 
 ## Process
@@ -333,12 +341,12 @@ If you wish to return from leave earlier than planned:
 
 - Notify HR at least 5 business days before your intended return date
 - Early return is subject to manager approval to ensure proper re-onboarding and workload transition
-- Returning early does not forfeit remaining leave -- unused parental leave cannot be banked or paid out
+- Returning early does not forfeit remaining leave—unused parental leave cannot be banked or paid out
 
 ## Return to Work
 
 You will be returned to the same or equivalent position upon return from leave.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     stateSpecific: ["MA", "NY"],
     category: "leave",
   },
@@ -362,7 +370,7 @@ You will be returned to the same or equivalent position upon return from leave.`
 
 ## Additional Time
 
-If you need more time, you may use PTO or request unpaid leave. Talk to your manager -- we will work with you.
+If you need more time, you may use PTO or request unpaid leave. Talk to your manager—we will work with you.
 
 ## Process
 
@@ -370,7 +378,7 @@ If you need more time, you may use PTO or request unpaid leave. Talk to your man
 - No documentation required, but HR may follow up for administrative purposes
 
 Bereavement leave does not need to be taken consecutively and may be used for funeral arrangements, memorial services, estate matters, or personal grieving.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "leave",
   },
   {
@@ -392,7 +400,7 @@ MHS pays your regular base salary during jury duty. Any jury duty fees paid by t
 ## Extended Service
 
 If jury service extends beyond 10 business days, contact HR to discuss arrangements.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "leave",
   },
   {
@@ -409,7 +417,7 @@ If your work schedule does not allow sufficient time to vote before or after wor
 
 - Notify your manager at least one day in advance if you need time to vote
 - Schedule voting time at the beginning or end of your shift when possible`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "leave",
   },
   {
@@ -429,7 +437,7 @@ Employees who are members of the uniformed services (including National Guard an
 
 ## Notice
 
-Provide as much advance notice as possible (written or verbal) to your manager and Ryan Eger, Chief of Staff/CSO when you receive military orders. We understand that military orders are not always predictable.
+Provide as much advance notice as possible (written or verbal) to your manager and Ryan Eger, President/Chief Strategy Officer when you receive military orders. We understand that military orders are not always predictable.
 
 ## Pay
 
@@ -451,7 +459,7 @@ Upon return from military leave, notify HR promptly. Reemployment timelines depe
 ## Non-Retaliation
 
 MHS prohibits discrimination or retaliation against any employee for military service, application for service, or exercising rights under USERRA.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "leave",
   },
   {
@@ -472,7 +480,7 @@ For employees working on-site, at client locations, or during company travel/eve
 
 ## How to Request
 
-If you need accommodation while working on-site, traveling, or at a company event, notify your manager or Ryan Eger, Chief of Staff/CSO in advance so arrangements can be made.
+If you need accommodation while working on-site, traveling, or at a company event, notify your manager or Ryan Eger, President/Chief Strategy Officer in advance so arrangements can be made.
 
 ## Compensation
 
@@ -483,7 +491,7 @@ Break time for expressing milk may be unpaid if you are a non-exempt employee an
 ## Non-Retaliation
 
 MHS prohibits retaliation against any employee for requesting or using lactation accommodation.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     stateSpecific: ["MA"],
     category: "leave",
   },
@@ -492,7 +500,7 @@ MHS prohibits retaliation against any employee for requesting or using lactation
     number: 16,
     title: "Retirement Benefits",
     content: `To the extent that MHS offers retirement benefits, you will be eligible to participate according to the applicable plan requirements.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "benefits",
   },
   {
@@ -520,7 +528,7 @@ If MHS receives a legal wage garnishment order (child support, tax levy, credito
 ## Final Pay
 
 Upon separation, final paychecks are processed in accordance with state law.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "operations",
   },
   {
@@ -534,7 +542,7 @@ For questions relating to your commission structure, if applicable, please see t
 ## Bonus Plan
 
 For questions relating to opportunities to obtain a discretionary bonus, please see the Company's Bonus Plan. If you do not have a copy, please request one from your manager.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "operations",
   },
   {
@@ -547,7 +555,7 @@ For questions relating to opportunities to obtain a discretionary bonus, please 
 
 - You must accurately record all hours worked, including start time, end time, and meal breaks
 - Record time daily through ADP (or designated system)
-- Do not work off the clock -- all time worked must be recorded
+- Do not work off the clock—all time worked must be recorded
 - Report any errors or missed punches to your manager immediately
 
 ## Exempt Employees
@@ -570,7 +578,7 @@ Employees working 6 or more hours are entitled to a 30-minute unpaid meal break.
 MHS retains timekeeping records for a minimum of 4 years in compliance with state requirements.
 
 **Falsifying time records is grounds for termination.**`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "operations",
   },
   {
@@ -582,11 +590,11 @@ MHS retains timekeeping records for a minimum of 4 years in compliance with stat
 - Communicate respectfully with colleagues, clients, and partners
 - Be responsive during working hours (i.e. respond to messages within a reasonable timeframe)
 - Show up prepared and professional for client-facing calls (camera on, appropriate background, no distractions)
-- Use company tools (Slack, email, HubSpot) appropriately -- assume anything written is permanent and discoverable
+- Use company tools (Slack, email, HubSpot) appropriately—assume anything written is permanent and discoverable
 - Represent MHS positively in all external interactions
 
 Violations may result in coaching, written warning, or termination depending on severity.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "conduct",
   },
   {
@@ -605,14 +613,14 @@ Violations may result in coaching, written warning, or termination depending on 
 
 - You may identify yourself as a MHS employee
 - Keep personal opinions clearly your own ("views are my own")
-- When in doubt, don't post -- ask your manager or HR first
+- When in doubt, don't post—ask your manager or HR first
 
 ## Content Creation / Influencer Clause
 
-You may not use MHS's intellectual property -- including data, methodologies, tools, insights, or proprietary processes -- to build a personal following or monetize content. Creating competing content using knowledge or assets gained at MHS is prohibited.
+You may not use MHS's intellectual property—including data, methodologies, tools, insights, or proprietary processes—to build a personal following or monetize content. Creating competing content using knowledge or assets gained at MHS is prohibited.
 
 Violations may result in disciplinary action up to termination.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "conduct",
   },
   {
@@ -626,7 +634,7 @@ Violations may result in disciplinary action up to termination.`,
 - Maintain a dedicated, professional workspace free from distractions
 - Ensure reliable high-speed internet sufficient for video calls
 - Use company-provided equipment for work purposes
-- Secure your workspace -- lock screens, protect confidential information
+- Secure your workspace—lock screens, protect confidential information
 
 ## Availability
 
@@ -641,7 +649,7 @@ Some roles or events may require occasional in-person attendance (team offsites,
 ## Workspace Costs
 
 MHS provides equipment through Electric (see Equipment policy). MHS may provide a small stipend for office expenses and partial internet reimbursement. Details will be communicated if offered.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "operations",
   },
   {
@@ -668,7 +676,7 @@ If your role is classified as non-exempt, you must:
 - Obtain manager approval before working overtime
 - Not work off the clock under any circumstances
 
-Overtime is paid at 1.5x your regular rate (or as required by state law) for hours worked over 40 in a workweek. Some states have daily overtime requirements -- see Local Law Addendum if applicable.
+Overtime is paid at 1.5x your regular rate (or as required by state law) for hours worked over 40 in a workweek. Some states have daily overtime requirements—see Local Law Addendum if applicable.
 
 **Working unauthorized overtime or failing to accurately report time may result in disciplinary action.**
 
@@ -677,7 +685,7 @@ Overtime is paid at 1.5x your regular rate (or as required by state law) for hou
 If your role is classified as exempt, you are not eligible for overtime pay. Exempt employees are expected to work the hours necessary to fulfill job responsibilities.
 
 **Questions:** If you are unsure of your classification, contact HR.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "operations",
   },
   {
@@ -696,7 +704,7 @@ If your role is classified as exempt, you are not eligible for overtime pay. Exe
 
 - Moderate alcohol consumption at company-sponsored events where alcohol is served
 - Appropriate use of legally prescribed medications that do not impair work performance
-- Recreational marijuana use during non-work hours in states where legal -- provided you are not impaired during work hours
+- Recreational marijuana use during non-work hours in states where legal—provided you are not impaired during work hours
 
 ## Medical Marijuana
 
@@ -704,7 +712,7 @@ Employees with valid medical marijuana prescriptions may request an accommodatio
 
 ## Impairment Standard
 
-Regardless of legality, you may not be impaired by any substance -- including alcohol, marijuana, or prescription medication -- while working. "Working" includes all work hours, company events, and any time you are performing MHS business.
+Regardless of legality, you may not be impaired by any substance—including alcohol, marijuana, or prescription medication—while working. "Working" includes all work hours, company events, and any time you are performing MHS business.
 
 ## Prescription Medications
 
@@ -713,7 +721,7 @@ If you are taking any medication that may affect your ability to work safely, no
 Violations may result in disciplinary action up to termination.
 
 **Employees in Massachusetts, Maryland, and Arizona:** See Local Law Addendum for additional information regarding marijuana and employment.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     stateSpecific: ["MA", "MD", "AZ"],
     category: "conduct",
   },
@@ -750,10 +758,10 @@ MHS does not discriminate based on natural hair texture or protective hairstyles
 
 ## Accommodation
 
-Employees requiring dress code accommodation for religious, medical, or disability-related reasons should contact Ryan Eger, Chief of Staff/CSO.
+Employees requiring dress code accommodation for religious, medical, or disability-related reasons should contact Ryan Eger, President/Chief Strategy Officer.
 
 Use good judgment. If you're unsure, ask your manager before an event or meeting.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "conduct",
   },
   {
@@ -764,7 +772,7 @@ Use good judgment. If you're unsure, ask your manager before an event or meeting
 
 ## Approved Tools
 
-- **Email:** Google Workspace (@usahomelistings.com)
+- **Email:** Google Workspace (@myhomestorypro.com) — legacy @usahomelistings.com addresses remain active during the transition and will be retired once the migration to @myhomestorypro.com is complete
 - **Messaging:** Slack
 - **Video:** Google Meet, Zoom
 - **CRM:** HubSpot
@@ -777,7 +785,7 @@ Use only approved tools for company business. Do not use personal email, messagi
 ## Expectations
 
 - Communicate professionally at all times, and remain in compliance with the Company's policies, including the Anti-Discrimination and Anti-Harassment Policy
-- Assume any message may be read by others -- write accordingly
+- Assume any message may be read by others—write accordingly
 - Respond to messages within a reasonable timeframe during working hours
 - Keep work discussions in appropriate channels (not personal text or DMs)
 
@@ -792,7 +800,7 @@ Do not delete business communications that may be relevant to company operations
 ## Personal Use
 
 Limited personal use of company tools is permitted, provided it does not interfere with work, violate any policy, or consume significant resources.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "operations",
   },
   {
@@ -809,7 +817,7 @@ Limited personal use of company tools is permitted, provided it does not interfe
 
 ## Work-Related Injuries
 
-If you are injured while performing work duties -- even at home -- report it immediately. To be covered, the injury must arise out of and occur in the course of your work for MHS.
+If you are injured while performing work duties—even at home—report it immediately. To be covered, the injury must arise out of and occur in the course of your work for MHS.
 
 ## Workers' Compensation
 
@@ -826,8 +834,8 @@ Use company-provided equipment properly. If you experience discomfort or strain 
 
 ## Emergency Preparedness
 
-Know the emergency procedures for your home (fire exits, emergency contacts). In the event of an emergency during work hours, prioritize your safety first -- notify your manager when safe to do so.`,
-    lastUpdated: "September 2026",
+Know the emergency procedures for your home (fire exits, emergency contacts). In the event of an emergency during work hours, prioritize your safety first—notify your manager when safe to do so.`,
+    lastUpdated: "September 8, 2026",
     category: "operations",
   },
   {
@@ -839,14 +847,14 @@ Know the emergency procedures for your home (fire exits, emergency contacts). In
 MHS provides equipment for all employees through our IT partner, Electric. Standard setup is based on your role and may include laptop or desktop, monitors, headset, and peripherals. Equipment is shipped during onboarding.
 
 All equipment is company property. Upon separation, equipment must be returned to Electric pursuant to offboarding instructions.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "benefits",
   },
   {
     id: "professional-development",
     number: 29,
     title: "Professional Development",
-    content: `Each employee receives $2,000 per calendar year for professional growth -- courses, certifications, conferences, books, coaching, or other development activities.
+    content: `Each employee receives $2,000 per calendar year for professional growth—courses, certifications, conferences, books, coaching, or other development activities.
 
 Expenses require manager pre-approval. Unused funds do not roll over.
 
@@ -856,8 +864,8 @@ We invest in your growth and expect you to invest in yourself. Professional deve
 
 ## Book Benefit
 
-Employees may purchase up to one book per quarter from the company reading list through our Amazon library -- separate from your $2,000 allowance.`,
-    lastUpdated: "September 2026",
+Employees may purchase up to one book per quarter from the company reading list through our Amazon library—separate from your $2,000 allowance.`,
+    lastUpdated: "September 8, 2026",
     category: "benefits",
   },
   {
@@ -873,7 +881,7 @@ Employees may purchase up to one book per quarter from the company reading list 
 | Rental Car | Basic/standard class |
 | Airfare | Economy class |
 
-No shared rooms -- every traveler gets their own room.
+No shared rooms—every traveler gets their own room.
 
 ## Approval
 
@@ -884,7 +892,7 @@ No shared rooms -- every traveler gets their own room.
 
 - Employees book and submit for reimbursement (default)
 - If you cannot front travel costs, submit a request to your manager at least 30 days before travel so the company can book and pay directly
-- Per diem is never prepaid -- submit after travel
+- Per diem is never prepaid—submit after travel
 
 ## Submission
 
@@ -893,7 +901,7 @@ Submit expenses with receipts via Dext (mobile app) within 14 days of travel.
 ## Non-Reimbursable
 
 Personal travel extensions, upgrades beyond policy, alcohol purchased separately from meals (a drink with dinner is fine; a bar tab is not). If you have questions regarding the scope of this Policy, please contact HR.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "operations",
   },
   {
@@ -912,14 +920,14 @@ Personal travel extensions, upgrades beyond policy, alcohol purchased separately
 You must notify your manager in writing of any outside employment. MHS reserves the right to request you discontinue outside work if a conflict arises.
 
 Failure to disclose, or engaging in prohibited outside work, may result in disciplinary action up to termination.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "conduct",
   },
   {
     id: "conflict-of-interest",
     number: 32,
     title: "Conflict of Interest",
-    content: `Employees must avoid situations where personal interests conflict -- or appear to conflict -- with MHS's interests.
+    content: `Employees must avoid situations where personal interests conflict—or appear to conflict—with MHS's interests.
 
 ## Examples of Conflicts Include
 
@@ -931,7 +939,7 @@ Failure to disclose, or engaging in prohibited outside work, may result in disci
 
 ## Disclosure Required
 
-If you have -- or become aware of -- a potential conflict, disclose it immediately to your manager or Chief of Staff/CSO. Disclosure does not automatically disqualify you; we will evaluate and determine appropriate action (which may include reassignment, recusal, or other mitigation).
+If you have—or become aware of—a potential conflict, disclose it immediately to your manager or President/Chief Strategy Officer. Disclosure does not automatically disqualify you; we will evaluate and determine appropriate action (which may include reassignment, recusal, or other mitigation).
 
 ## Family & Personal Relationships
 
@@ -940,14 +948,14 @@ If a family member or someone you have a close personal relationship with is emp
 For purposes of this policy, "family member" includes: spouse, domestic partner, parent, child, sibling, grandparent, grandchild, in-laws, step-relations, and any person living in your household.
 
 Failure to disclose conflicts may result in disciplinary action up to termination.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "conduct",
   },
   {
     id: "anti-bribery-and-anti-corruption",
     number: 33,
     title: "Anti-Bribery & Anti-Corruption",
-    content: `MHS prohibits bribery and corruption in all forms. This applies to all employees, contractors, and anyone acting on MHS's behalf -- regardless of location.
+    content: `MHS prohibits bribery and corruption in all forms. This applies to all employees, contractors, and anyone acting on MHS's behalf—regardless of location.
 
 ## You May Not
 
@@ -978,20 +986,20 @@ Small payments to speed up routine government actions (permits, licenses) are pr
 Violations may result in termination and referral to law enforcement. Bribery violations can result in significant fines and imprisonment for individuals.
 
 This policy is designed to comply with the U.S. Foreign Corrupt Practices Act (FCPA), Canadian Corruption of Foreign Public Officials Act (CFPOA), and other applicable anti-corruption laws.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "conduct",
   },
   {
     id: "gifts-and-entertainment",
     number: 34,
     title: "Gifts & Entertainment",
-    content: `Employees may occasionally receive or provide gifts or entertainment in the course of business relationships. This is acceptable within limits -- but must never create an obligation or appearance of impropriety.
+    content: `Employees may occasionally receive or provide gifts or entertainment in the course of business relationships. This is acceptable within limits—but must never create an obligation or appearance of impropriety.
 
 ## Receiving Gifts
 
 - **Gifts valued under $100:** May be accepted without disclosure
 - **Gifts valued $100-$250:** Must be disclosed to your manager
-- **Gifts valued over $250:** Must be declined or approved by Chief of Staff/CSO
+- **Gifts valued over $250:** Must be declined or approved by President/Chief Strategy Officer
 - **Cash or cash equivalents (gift cards):** Never acceptable, regardless of amount
 
 ## Providing Gifts (on behalf of MHS)
@@ -1003,15 +1011,15 @@ This policy is designed to comply with the U.S. Foreign Corrupt Practices Act (F
 ## Entertainment
 
 - Business meals, events, or outings should be reasonable and infrequent
-- Lavish or excessive entertainment is prohibited -- giving or receiving
+- Lavish or excessive entertainment is prohibited—giving or receiving
 - Client entertainment over $250: Requires C-suite pre-approval (per expense policy)
 
 ## Government Officials
 
-Extra caution required. Gifts or entertainment to government officials -- even of nominal value -- may violate bribery laws. Consult Chief of Staff/CSO before offering anything of value to a government official.
+Extra caution required. Gifts or entertainment to government officials—even of nominal value—may violate bribery laws. Consult President/Chief Strategy Officer before offering anything of value to a government official.
 
 When in doubt, disclose and ask.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "conduct",
   },
   {
@@ -1036,7 +1044,7 @@ You are protected when you report, in good faith:
 Reports may be made through any of the following channels:
 
 - Your manager
-- Ryan Eger, Chief of Staff/CSO
+- Ryan Eger, President/Chief Strategy Officer
 - Eric Wirks, CEO
 - Anonymous reporting channel (to be implemented)
 - External government agencies (OSHA, Equal Employment Opportunity Commission (EEOC), Securities and Exchange Commission (SEC), state agencies, etc.)
@@ -1060,7 +1068,7 @@ Retaliation includes termination, demotion, threats, harassment, or any adverse 
 ## Bad Faith Reports
 
 Knowingly making a false report is a violation of this policy and may result in disciplinary action.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "conduct",
   },
   {
@@ -1072,7 +1080,7 @@ Knowingly making a false report is a violation of this policy and may result in 
 ## How to Report
 
 - Talk to your direct manager (first option for most issues)
-- Contact Ryan Eger, Chief of Staff/CSO (HR matters)
+- Contact Ryan Eger, President/Chief Strategy Officer (HR matters)
 - Contact Eric Wirks, CEO (if concern involves Ryan or your manager is unavailable)
 
 ## Anonymous Reporting
@@ -1088,7 +1096,7 @@ MHS internal app will offer access to reporting.
 ## Documentation
 
 All reports and investigations are documented and retained in accordance with our records retention policy.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "conduct",
   },
   {
@@ -1120,7 +1128,7 @@ If you are asked to participate in an investigation:
 
 - Cooperate fully and honestly
 - Provide truthful and complete information
-- Maintain confidentiality -- do not discuss the investigation with others
+- Maintain confidentiality—do not discuss the investigation with others
 - Do not retaliate against anyone involved in the investigation
 
 Failure to cooperate or providing false information may result in disciplinary action up to termination.
@@ -1139,8 +1147,8 @@ Retaliation against anyone who reports a concern, participates in an investigati
 
 ## External Investigations
 
-If a government agency or law enforcement conducts an investigation involving MHS, notify Ryan Eger, Chief of Staff/CSO or Eric Wirks, CEO immediately. Do not destroy or alter any documents.`,
-    lastUpdated: "September 2026",
+If a government agency or law enforcement conducts an investigation involving MHS, notify Ryan Eger, President/Chief Strategy Officer or Eric Wirks, CEO immediately. Do not destroy or alter any documents.`,
+    lastUpdated: "September 8, 2026",
     category: "conduct",
   },
   {
@@ -1163,7 +1171,7 @@ If a government agency or law enforcement conducts an investigation involving MH
 - Ensuring equipment request is submitted to Electric
 - Reviewing handbook with new employee
 - Scheduling check-ins at 30, 60, and 90 days`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "operations",
   },
   {
@@ -1174,13 +1182,13 @@ If a government agency or law enforcement conducts an investigation involving MH
 
 ## Your Right to Access
 
-You may request to review your personnel file by submitting a written request to Ryan Eger, Chief of Staff/CSO. We will arrange a time for you to review your file within a reasonable timeframe.
+You may request to review your personnel file by submitting a written request to Ryan Eger, President/Chief Strategy Officer. We will arrange a time for you to review your file within a reasonable timeframe.
 
 **Massachusetts employees:** You may review your file within 5 business days of a written request and may request a copy of your file.
 
 ## What's in Your File
 
-- Application and resume
+- Application and résumé
 - Offer letter and employment agreements
 - Tax and payroll forms
 - Performance reviews and disciplinary documentation
@@ -1200,7 +1208,7 @@ You are responsible for keeping your personal information current (address, emer
 ## Confidentiality
 
 Personnel files are confidential. Access is limited to those with a legitimate business need.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     stateSpecific: ["MA"],
     category: "operations",
   },
@@ -1212,17 +1220,17 @@ Personnel files are confidential. Access is limited to those with a legitimate b
 
 ## Typical Steps
 
-1. **Verbal Coaching** -- Informal conversation to address the issue and set expectations.
+1. **Verbal Coaching** — Informal conversation to address the issue and set expectations.
 
-2. **Action Plan** -- Documented feedback identifying specific areas for improvement, actions to take, and timeline. An action plan is developmental, not punitive, but failure to improve may lead to formal discipline.
+2. **Action Plan** — Documented feedback identifying specific areas for improvement, actions to take, and timeline. An action plan is developmental, not punitive, but failure to improve may lead to formal discipline.
 
-3. **Written Warning** -- Formal documented notice of the issue, expectations, and consequences of continued problems.
+3. **Written Warning** — Formal documented notice of the issue, expectations, and consequences of continued problems.
 
-4. **Performance Improvement Plan (PIP)** -- Formal plan with specific goals, measurable outcomes, support provided, and defined timeline (typically 30-60 days). Failure to meet PIP requirements may result in termination.
+4. **Performance Improvement Plan (PIP)** — Formal plan with specific goals, measurable outcomes, support provided, and defined timeline (typically 30-60 days). Failure to meet PIP requirements may result in termination.
 
-5. **Final Written Warning** -- Last opportunity notice. Any further issues will result in termination.
+5. **Final Written Warning** — Last opportunity notice. Any further issues will result in termination.
 
-6. **Termination** -- Separation from employment.
+6. **Termination** — Separation from employment.
 
 ## Immediate Termination
 
@@ -1251,7 +1259,7 @@ All disciplinary actions (action plans and above) are documented and retained in
 ## Employee Response
 
 Employees may provide a written response to any disciplinary action, which will be attached to the documentation in their personnel file.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "operations",
   },
   {
@@ -1265,7 +1273,7 @@ Employees may provide a written response to any disciplinary action, which will 
 - **Non-management employees:** 2 weeks written notice
 - **Managers and above:** 4 weeks written notice
 
-Notice should be submitted in writing (email is acceptable) to your manager and Ryan Eger, Chief of Staff/CSO.
+Notice should be submitted in writing (email is acceptable) to your manager and Ryan Eger, President/Chief Strategy Officer.
 
 ## What Happens Next
 
@@ -1287,7 +1295,7 @@ MHS reserves the right to accept your resignation effective immediately and pay 
 - You are not required to report to work
 - Benefits continue through the paid notice period
 
-This decision is made solely by the Chief of Staff/CSO or CEO -- not by individual managers.
+This decision is made solely by the President/Chief Strategy Officer or CEO—not by individual managers.
 
 ## Rehire Eligibility
 
@@ -1296,7 +1304,7 @@ Employees who resign in good standing with proper notice may be eligible for reh
 ## Job Abandonment
 
 If you fail to report to work for 3 consecutive business days without notifying your manager, MHS will consider this a voluntary resignation (job abandonment) and process your separation accordingly.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "operations",
   },
   {
@@ -1327,7 +1335,7 @@ If you fail to report to work for 3 consecutive business days without notifying 
 ## Documentation
 
 Offboarding checklist and exit survey retained per Record Retention Policy.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "operations",
   },
   {
@@ -1362,8 +1370,8 @@ Offboarding checklist and exit survey retained per Record Retention Policy.`,
 
 Records past their retention period will be securely destroyed. Paper documents will be shredded; electronic records will be permanently deleted.
 
-**Questions:** Contact Ryan Eger, Chief of Staff/CSO with questions about retention requirements.`,
-    lastUpdated: "September 2026",
+**Questions:** Contact Ryan Eger, President/Chief Strategy Officer with questions about retention requirements.`,
+    lastUpdated: "September 8, 2026",
     category: "operations",
   },
   {
@@ -1374,7 +1382,7 @@ Records past their retention period will be securely destroyed. Paper documents 
 
 ## Employment Verification
 
-All employment verification requests must be directed to Ryan Eger, Chief of Staff/CSO or processed through ADP (if applicable).
+All employment verification requests must be directed to Ryan Eger, President/Chief Strategy Officer or processed through ADP (if applicable).
 
 MHS will confirm only:
 
@@ -1387,7 +1395,7 @@ We do not provide salary information, performance evaluations, or reasons for se
 
 Managers and employees should not provide references on behalf of MHS without authorization. If you receive a reference request:
 
-- Direct the request to Ryan Eger, Chief of Staff/CSO
+- Direct the request to Ryan Eger, President/Chief Strategy Officer
 - Do not provide personal opinions about a former employee's performance or character as a representative of MHS
 
 You may provide a personal reference in your individual capacity (not as a MHS representative), but make clear you are speaking for yourself, not the Company.
@@ -1398,8 +1406,8 @@ Limiting official references to verified facts protects both MHS and employees f
 
 ## Background Check Inquiries
 
-If a third party contacts you regarding a background check on a current or former employee, direct them to Ryan Eger, Chief of Staff/CSO. Do not respond directly.`,
-    lastUpdated: "September 2026",
+If a third party contacts you regarding a background check on a current or former employee, direct them to Ryan Eger, President/Chief Strategy Officer. Do not respond directly.`,
+    lastUpdated: "September 8, 2026",
     category: "operations",
   },
   {
@@ -1446,10 +1454,10 @@ If a third party contacts you regarding a background check on a current or forme
 
 Employees in Florida, Georgia, Kentucky, North Carolina, Tennessee, and Ohio are covered by the general policies in this handbook. These states generally follow federal employment law without significant additional state requirements applicable to MHS's current operations.
 
-If you have questions about state-specific rights or requirements, contact Ryan Eger, Chief of Staff/CSO.
+If you have questions about state-specific rights or requirements, contact Ryan Eger, President/Chief Strategy Officer.
 
 This addendum will be updated as MHS expands to additional states or as laws change. Employees will be notified of material updates.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     stateSpecific: ["AZ", "MA", "MD", "NY", "FL", "GA", "KY", "NC", "TN", "OH"],
     category: "state-addendum",
   },
@@ -1457,7 +1465,7 @@ This addendum will be updated as MHS expands to additional states or as laws cha
     id: "employee-handbook-acknowledgement",
     number: 46,
     title: "Employee Handbook Acknowledgement",
-    content: `I acknowledge that I have received and reviewed the My Home Story Inc. Employee Handbook. I understand that:
+    content: `I acknowledge that I have received and reviewed the My Home Story, Inc. Employee Handbook. I understand that:
 
 1. This handbook describes important information about MHS and I should consult my manager or HR if I have questions.
 
@@ -1491,14 +1499,14 @@ This addendum will be updated as MHS expands to additional states or as laws cha
 **Date:** _________________________________________________
 
 This acknowledgement will be kept in your personnel file. A copy will be provided to the employee.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "general",
   },
   {
     id: "contractor-handbook-acknowledgement",
     number: 47,
     title: "Contractor Handbook Acknowledgement",
-    content: `I acknowledge that I have received and reviewed the applicable sections of the My Home Story Inc. Handbook as they pertain to contractors. I understand that:
+    content: `I acknowledge that I have received and reviewed the applicable sections of the My Home Story, Inc. Handbook as they pertain to contractors. I understand that:
 
 1. I am a contractor, not an employee of MHS. I am not eligible for employee benefits, equity, or protections unless explicitly stated in my contract.
 
@@ -1534,7 +1542,7 @@ This acknowledgement will be kept in your personnel file. A copy will be provide
 **Date:** _________________________________________________
 
 This acknowledgement will be kept on file. A copy will be provided to the contractor.`,
-    lastUpdated: "September 2026",
+    lastUpdated: "September 8, 2026",
     category: "general",
   },
 ];

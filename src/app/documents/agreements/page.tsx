@@ -29,9 +29,13 @@ const agreementCategories = [
       "The full MHS Employee Handbook covering all company policies, leave, conduct, and more.",
     documents: [
       {
-        name: "MHS Employee Handbook",
-        note: "Also available as the interactive Handbook in this portal",
+        name: "My Home Story, Inc. Employee Handbook",
+        note: "Amended & Restated, effective September 8, 2026 — also available as the interactive Handbook in this portal",
         portalLink: "/handbook",
+      },
+      {
+        name: "Handbook Acknowledgment (Amended & Restated, September 8, 2026)",
+        note: "Sign and return to Ryan Eger. Replaces any handbook acknowledgment previously signed with USA Home Listings",
       },
     ],
     summary:

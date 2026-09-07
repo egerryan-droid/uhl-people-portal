@@ -31,7 +31,7 @@ export const teamDirectory: TeamMember[] = [
   {
     name: "Ryan Eger",
     email: "ryan@usahomelistings.com",
-    title: "Chief of Staff / CSO",
+    title: "President / Chief Strategy Officer",
     department: "Leadership",
     type: "W2",
     reportsTo: "Eric Wirks",

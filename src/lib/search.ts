@@ -47,5 +47,5 @@ function getExcerpt(content: string, term: string): string {
   if (start > 0) excerpt = "..." + excerpt
   if (end < content.length) excerpt = excerpt + "..."
 
-  return excerpt.replace(/[#*_\[\]]/g, "").replace(/\n+/g, " ")
+  return excerpt.replace(/[#*_\[\]|>]/g, "").replace(/\n+/g, " ")
 }

@@ -127,7 +127,7 @@ export default async function CompanyPage() {
           <Card>
             <CardHeader className="pb-2">
               <CardTitle className="text-base">Ryan Eger</CardTitle>
-              <CardDescription>Chief of Staff / CSO</CardDescription>
+              <CardDescription>President / Chief Strategy Officer</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
