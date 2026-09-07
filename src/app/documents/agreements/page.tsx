@@ -35,7 +35,7 @@ const agreementCategories = [
       },
       {
         name: "Handbook Acknowledgment (Amended & Restated, September 8, 2026)",
-        note: "Sign and return to Ryan Eger. Replaces any handbook acknowledgment previously signed with USA Home Listings",
+        note: "Employees only — sign and return to Ryan Eger; replaces any prior USA Home Listings acknowledgment. Contractors remain engaged by USA Home Listings, LLC and use the Contractor Handbook Acknowledgement (Handbook §47) instead",
       },
     ],
     summary:
