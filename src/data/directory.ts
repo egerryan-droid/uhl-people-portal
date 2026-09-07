@@ -1,7 +1,6 @@
-// Roster synced from the 15Five org chart on 2026-08-03 (21 people); Dee Frazier and
-// Darryl Darius removed on 2026-09-08 after termination; Elizabeth Ropati added the
-// same day (20 people). Marisa McMillan and Munib Fuyad emails corrected 2026-09-08 to the
-// addresses they actually sign in with.
+// Roster synced from the 15Five org chart on 2026-08-03 (21 people). Changes on 2026-09-08:
+// Dee Frazier, Darryl Darius, and Jeffy Lising removed; Elizabeth Ropati added; Marisa
+// McMillan and Munib Fuyad emails corrected to their sign-in addresses (19 people).
 // This file is hardcoded, so it drifts on every hire, departure, and title change.
 
 export interface TeamMember {
@@ -147,14 +146,6 @@ export const teamDirectory: TeamMember[] = [
     title: "Customer Success",
     department: "Customer Success",
     type: "W2",
-    reportsTo: "Maggie Campbell",
-  },
-  {
-    name: "Jeffy Lising",
-    email: "jeffy@usahomelistings.com",
-    title: "Customer Service / Virtual Assistant",
-    department: "Customer Success",
-    type: "Contractor",
     reportsTo: "Maggie Campbell",
   },
 
