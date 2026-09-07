@@ -56,14 +56,14 @@ export const jobDescriptions: JobDescription[] = [
     ],
   },
   {
-    id: "chief-of-staff-cso",
-    title: "Chief of Staff / Chief Strategy Officer",
+    id: "president-chief-strategy-officer",
+    title: "President / Chief Strategy Officer",
     department: "Leadership",
     location: "Remote (US-based)",
     type: "Full-time (W2)",
     reportsTo: "Eric, CEO",
     summary:
-      "The Chief of Staff / CSO is the CEO's strategic partner and the company's chief operator. You own strategy execution, cross-functional coordination, and organizational development -- ensuring the company delivers on its vision while building the systems and team to scale. This is the #2 role in the company.",
+      "The President / Chief Strategy Officer is the CEO's strategic partner and the company's chief operator. You own strategy execution, cross-functional coordination, and organizational development -- ensuring the company delivers on its vision while building the systems and team to scale. This is the #2 role in the company.",
     responsibilities: [
       "Translate CEO vision into quarterly and annual operating plans",
       "Own the company OKR framework -- set, track, and hold leaders accountable",
@@ -176,7 +176,7 @@ export const jobDescriptions: JobDescription[] = [
     department: "Customer Success",
     location: "Remote (US-based)",
     type: "Full-time (W2)",
-    reportsTo: "Ryan Eger, Chief of Staff / CSO",
+    reportsTo: "Ryan Eger, President / Chief Strategy Officer",
     summary:
       "The Customer Success Manager owns the post-sale customer experience. You are responsible for onboarding, retention, expansion, and renewals -- ensuring customers succeed with the platform and grow their investment over time. This is a player-coach role managing a growing team of CS Coordinators and Tier 1 Support agents while personally owning key accounts.",
     responsibilities: [
@@ -224,7 +224,7 @@ export const jobDescriptions: JobDescription[] = [
     type: "Full-time (W2)",
     reportsTo: "Eric, CEO",
     summary:
-      "The CTO owns technology. You are responsible for building, leading, and scaling the engineering organization as USA Home Listings transforms into a SaaS platform. This is a builder role -- you are architecting the platform, leading the team, and making the technical decisions that will define the product's future.",
+      "The CTO owns technology. You are responsible for building, leading, and scaling the engineering organization as My Home Story transforms into a SaaS platform. This is a builder role -- you are architecting the platform, leading the team, and making the technical decisions that will define the product's future.",
     responsibilities: [
       "Own the technical architecture for the SaaS platform transformation",
       "Lead development of API layer and data lake infrastructure",
@@ -269,7 +269,7 @@ export const jobDescriptions: JobDescription[] = [
     type: "Full-time (W2)",
     reportsTo: "Eric, CEO",
     summary:
-      "The VP of Sales owns revenue. You are responsible for building, leading, and scaling a high-performing sales organization as USA Home Listings transforms into a SaaS platform. This is a coaching role -- you hire the right people, build the systems, set the quotas, and create an environment where your team can win.",
+      "The VP of Sales owns revenue. You are responsible for building, leading, and scaling a high-performing sales organization as My Home Story transforms into a SaaS platform. This is a coaching role -- you hire the right people, build the systems, set the quotas, and create an environment where your team can win.",
     responsibilities: [
       "Own the team revenue target for new ARR",
       "Set and manage individual quotas across all AEs",

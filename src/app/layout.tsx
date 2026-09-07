@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "UHL People Portal",
-  description: "USA Home Listings internal employee portal",
+  title: "MHS People Portal",
+  description: "My Home Story, Inc. internal employee portal",
   robots: { index: false, follow: false },
 }
 

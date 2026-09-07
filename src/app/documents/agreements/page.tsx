@@ -26,12 +26,16 @@ const agreementCategories = [
     title: "Employee Handbook",
     icon: BookOpen,
     description:
-      "The full UHL Employee Handbook covering all company policies, leave, conduct, and more.",
+      "The full MHS Employee Handbook covering all company policies, leave, conduct, and more.",
     documents: [
       {
-        name: "UHL Employee Handbook",
-        note: "Also available as the interactive Handbook in this portal",
+        name: "My Home Story, Inc. Employee Handbook",
+        note: "Amended & Restated, effective September 8, 2026 — also available as the interactive Handbook in this portal",
         portalLink: "/handbook",
+      },
+      {
+        name: "Handbook Acknowledgment (Amended & Restated, September 8, 2026)",
+        note: "Sign and return to Ryan Eger. Replaces any handbook acknowledgment previously signed with USA Home Listings",
       },
     ],
     summary:
@@ -78,7 +82,7 @@ const agreementCategories = [
       { name: "Tennessee (TN)", state: "TN" },
     ],
     summary:
-      "Key terms: Confidentiality of all proprietary information (during and after employment), 2-year non-competition (50-mile radius of UHL operations), 2-year non-solicitation of customers and employees, non-disparagement, IP/work product assignment to UHL, and exit obligations. Includes DTSA whistleblower immunity notice. Terms vary by state — your version applies to the state listed on your agreement.",
+      "Key terms: Confidentiality of all proprietary information (during and after employment), 2-year non-competition (50-mile radius of MHS operations), 2-year non-solicitation of customers and employees, non-disparagement, IP/work product assignment to MHS, and exit obligations. Includes DTSA whistleblower immunity notice. Terms vary by state — your version applies to the state listed on your agreement.",
   },
   {
     title: "Bonus Plan",
@@ -87,7 +91,7 @@ const agreementCategories = [
       "The discretionary bonus plan covering OKR-based performance bonuses and CS retention bonuses.",
     documents: [
       {
-        name: "UHL Bonus Plan (2026)",
+        name: "MHS Bonus Plan (2026)",
         note: "Applies to all bonus-eligible employees",
       },
     ],
@@ -112,7 +116,7 @@ export default function AgreementsPage() {
           Agreements & Templates
         </h1>
         <p className="text-muted-foreground">
-          Review the standard documents you signed when joining UHL. Blank
+          Review the standard documents you signed when you joined. Blank
           templates are available if you need to reference the original terms.
         </p>
       </div>

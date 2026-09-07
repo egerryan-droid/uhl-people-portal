@@ -61,7 +61,7 @@ export default async function CompanyPage() {
       <div>
         <h1 className="text-2xl font-semibold tracking-tight">Company</h1>
         <p className="text-muted-foreground">
-          USA Home Listings culture, holidays, and key contacts.
+          My Home Story culture, holidays, and key contacts.
         </p>
       </div>
 
@@ -108,7 +108,7 @@ export default async function CompanyPage() {
               ))}
             </div>
             <p className="mt-3 text-xs text-muted-foreground">
-              UHL also supports personal observances for religious and cultural
+              MHS also supports personal observances for religious and cultural
               holidays. Speak with your manager to arrange time off.
             </p>
           </CardContent>
@@ -127,7 +127,7 @@ export default async function CompanyPage() {
           <Card>
             <CardHeader className="pb-2">
               <CardTitle className="text-base">Ryan Eger</CardTitle>
-              <CardDescription>Chief of Staff / CSO</CardDescription>
+              <CardDescription>President / Chief Strategy Officer</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">

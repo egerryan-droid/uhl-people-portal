@@ -54,6 +54,8 @@ type Block =
   | { type: "h3"; text: string }
   | { type: "paragraph"; text: string }
   | { type: "list"; items: string[]; ordered: boolean }
+  | { type: "table"; header: string[]; rows: string[][] }
+  | { type: "blockquote"; lines: string[] }
 
 function parseMarkdown(md: string): Block[] {
   const lines = md.split("\n")
@@ -69,6 +71,29 @@ function parseMarkdown(md: string): Block[] {
     } else if (line.startsWith("### ")) {
       blocks.push({ type: "h3", text: line.slice(4).trim() })
       i++
+    } else if (line.startsWith("|")) {
+      const rowLines: string[] = []
+      while (i < lines.length && lines[i].startsWith("|")) {
+        rowLines.push(lines[i])
+        i++
+      }
+      // The |---|---| row only separates header from body; it carries no text.
+      const isSeparator = (row: string) => /^\|\s*:?-{3,}/.test(row)
+      const cells = (row: string) =>
+        row.replace(/^\|/, "").replace(/\|\s*$/, "").split("|").map((c) => c.trim())
+      const [header, ...rest] = rowLines.filter((row) => !isSeparator(row))
+      blocks.push({
+        type: "table",
+        header: header ? cells(header) : [],
+        rows: rest.map(cells),
+      })
+    } else if (line.startsWith(">")) {
+      const quoteLines: string[] = []
+      while (i < lines.length && lines[i].startsWith(">")) {
+        quoteLines.push(lines[i].replace(/^>\s?/, "").trim())
+        i++
+      }
+      blocks.push({ type: "blockquote", lines: quoteLines.filter(Boolean) })
     } else if (line.startsWith("- ")) {
       const items: string[] = []
       while (i < lines.length && lines[i].startsWith("- ")) {
@@ -134,6 +159,46 @@ function RenderBlock({ block }: { block: Block }) {
         <p className="leading-relaxed text-foreground/90">
           <InlineText text={block.text} />
         </p>
+      )
+    case "table":
+      return (
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b">
+                {block.header.map((cell, i) => (
+                  <th key={i} className="px-3 py-2 text-left font-semibold">
+                    <InlineText text={cell} />
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {block.rows.map((row, r) => (
+                <tr key={r} className="border-b last:border-0">
+                  {row.map((cell, c) => (
+                    <td
+                      key={c}
+                      className="px-3 py-2 align-top leading-relaxed text-foreground/90"
+                    >
+                      <InlineText text={cell} />
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )
+    case "blockquote":
+      return (
+        <div className="space-y-2 rounded-md border-l-4 border-primary/60 bg-muted/40 px-4 py-3">
+          {block.lines.map((line, i) => (
+            <p key={i} className="text-sm leading-relaxed text-foreground/90">
+              <InlineText text={line} />
+            </p>
+          ))}
+        </div>
       )
     case "list": {
       const Tag = block.ordered ? "ol" : "ul"

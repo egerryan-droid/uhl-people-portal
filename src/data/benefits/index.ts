@@ -34,13 +34,13 @@ export const medicalPlanB = {
     rx: "Hits deductible first",
     oopMax: "$7,500",
     oopMaxFamily: "$15,000",
-    hsaContribution: "$1,500–$2,000/yr from UHL",
+    hsaContribution: "$1,500–$2,000/yr from MHS",
     premiumSavings: "Lower premiums vs Plan A",
   },
 }
 
 export const employeeCosts = {
-  note: "Your 25% share — medical + dental + vision combined. UHL pays 75%.",
+  note: "Your 25% share — medical + dental + vision combined. MHS pays 75%.",
   tiers: [
     {
       tier: "Employee only",
@@ -131,12 +131,12 @@ export const retirement = {
     type: "Traditional QACA Safe Harbor",
     formula: "100% of first 1% + 50% of next 5% = max 3.5% employer contribution",
     table: [
-      { youContribute: "1%", uhlMatches: "1%" },
-      { youContribute: "2%", uhlMatches: "1.5%" },
-      { youContribute: "3%", uhlMatches: "2%" },
-      { youContribute: "4%", uhlMatches: "2.5%" },
-      { youContribute: "5%", uhlMatches: "3%" },
-      { youContribute: "6%+", uhlMatches: "3.5%" },
+      { youContribute: "1%", mhsMatches: "1%" },
+      { youContribute: "2%", mhsMatches: "1.5%" },
+      { youContribute: "3%", mhsMatches: "2%" },
+      { youContribute: "4%", mhsMatches: "2.5%" },
+      { youContribute: "5%", mhsMatches: "3%" },
+      { youContribute: "6%+", mhsMatches: "3.5%" },
     ],
     frequency: "Each pay period",
   },
@@ -151,7 +151,7 @@ export const retirement = {
   },
   loans: { allowed: true, maxOutstanding: 1 },
   hardshipWithdrawals: true,
-  profitSharing: "Discretionary cross-tested (determined annually by UHL)",
+  profitSharing: "Discretionary cross-tested (determined annually by MHS)",
   payrollFrequency: "Bi-weekly",
 }
 
@@ -159,5 +159,5 @@ export const professionalDevelopment = {
   annualAllowance: "$2,000",
   bookBenefit: "Quarterly book stipend",
   description:
-    "UHL provides a $2,000 annual professional development allowance for courses, certifications, conferences, and learning resources. Additionally, a quarterly book benefit is available for professional reading.",
+    "MHS provides a $2,000 annual professional development allowance for courses, certifications, conferences, and learning resources. Additionally, a quarterly book benefit is available for professional reading.",
 }

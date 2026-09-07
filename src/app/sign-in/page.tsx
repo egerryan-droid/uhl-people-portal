@@ -6,13 +6,13 @@ export default function SignInPage() {
       <div className="mx-auto flex w-full max-w-sm flex-col items-center gap-6 px-4">
         <div className="flex flex-col items-center gap-2 text-center">
           <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#042C53]">
-            <span className="text-xl font-bold text-white">UHL</span>
+            <span className="text-xl font-bold text-white">MHS</span>
           </div>
           <h1 className="text-2xl font-semibold tracking-tight">
-            UHL People Portal
+            MHS People Portal
           </h1>
           <p className="text-sm text-muted-foreground">
-            Sign in with your USA Home Listings Google account
+            Sign in with your My Home Story Google account
           </p>
         </div>
 
