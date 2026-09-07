@@ -1,5 +1,6 @@
 // Roster synced from the 15Five org chart on 2026-08-03 (21 people); Dee Frazier and
-// Darryl Darius removed on 2026-09-08 after termination (19 people).
+// Darryl Darius removed on 2026-09-08 after termination; Elizabeth Ropati added the
+// same day (20 people).
 // This file is hardcoded, so it drifts on every hire, departure, and title change.
 
 export interface TeamMember {
@@ -44,6 +45,14 @@ export const teamDirectory: TeamMember[] = [
     department: "Leadership",
     type: "W2",
     reportsTo: "Eric Wirks",
+  },
+  {
+    name: "Elizabeth Ropati",
+    email: "learning@usahomelistings.com",
+    title: "Director of People",
+    department: "Leadership",
+    type: "W2",
+    reportsTo: "Ryan Eger",
   },
 
   // Sales
