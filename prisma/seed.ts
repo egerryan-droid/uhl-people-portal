@@ -8,6 +8,7 @@ async function main() {
   const admins = [
     { email: "ryan@usahomelistings.com", name: "Ryan Eger", role: "admin" },
     { email: "eric@usahomelistings.com", name: "Eric Wirks", role: "admin" },
+    { email: "learning@usahomelistings.com", name: "Elizabeth Ropati", role: "admin" },
   ]
 
   for (const admin of admins) {
